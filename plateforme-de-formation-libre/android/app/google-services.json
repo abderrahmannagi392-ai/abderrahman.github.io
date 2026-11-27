@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "14588310739",
+    "firebase_url": "https://tedribi-default-rtdb.firebaseio.com",
+    "project_id": "tedribi",
+    "storage_bucket": "tedribi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14588310739:android:816246150d84c32303d026",
+        "android_client_info": {
+          "package_name": "tadribi.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14588310739-jiqfbndbb3q851jnpk7kt629io75hj7e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPAXJWRSn0ZKaVouNHm_Gn1ZjOaL0mJJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14588310739-jiqfbndbb3q851jnpk7kt629io75hj7e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

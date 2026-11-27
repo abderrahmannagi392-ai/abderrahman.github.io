@@ -11,7 +11,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 //   npm run cap:android      # open the Android project in Android Studio
 //   npm run cap:ios          # open the iOS project in Xcode (macOS only)
 const config: CapacitorConfig = {
-  appId: 'com.tadribi.app',
+  appId: 'tadribi.com',
   appName: 'تدريبي',
   webDir: 'dist',
   server: {
