@@ -1,0 +1,522 @@
+{
+  "entities": {
+    "AdminRecord": {
+      "title": "AdminRecord",
+      "description": "Official single admin privilege record bound strictly to elalyatalebjidou@gmail.com.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "email": { "type": "string", "format": "email", "maxLength": 200 },
+        "grantedAt": { "type": "string", "format": "date-time" },
+        "note": { "type": "string", "maxLength": 200 }
+      },
+      "required": ["uid", "email", "grantedAt"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Public/non-PII user preferences and academic track profile.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "name": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "role": { "type": "string", "enum": ["student", "admin"] },
+        "track": { "type": "string", "enum": ["arabic", "french", "bilingual"] },
+        "preferredLang": { "type": "string", "enum": ["ar", "fr", "en"] },
+        "level": { "type": "string", "enum": ["foundation", "intermediate", "advanced"] },
+        "emailVerified": { "type": "boolean" },
+        "disabled": { "type": "boolean" },
+        "activePlanSlug": { "type": "string", "maxLength": 64 },
+        "activePlanNameAr": { "type": "string", "maxLength": 160 },
+        "activePlanNameFr": { "type": "string", "maxLength": 160 },
+        "subscriptionExpiresAt": { "type": "string", "maxLength": 64 },
+        "profileCompleted": { "type": "boolean" },
+        "authProvider": { "type": "string", "maxLength": 40 },
+        "acceptedTermsAt": { "type": "string", "maxLength": 64 },
+        "acceptedPrivacyAt": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "name", "role", "track", "preferredLang", "level", "emailVerified", "disabled", "createdAt", "updatedAt"]
+    },
+    "UserPrivateInfo": {
+      "title": "UserPrivateInfo",
+      "description": "Isolated PII document for user email and contact details.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "email": { "type": "string", "format": "email", "maxLength": 200 },
+        "phone": { "type": "string", "maxLength": 40 },
+        "wilaya": { "type": "string", "maxLength": 100 },
+        "city": { "type": "string", "maxLength": 100 },
+        "institution": { "type": "string", "maxLength": 140 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "createdAt", "updatedAt"]
+    },
+    "LessonProgress": {
+      "title": "LessonProgress",
+      "description": "Per-user lesson completion and favorite bookmark.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "lessonId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "completed": { "type": "boolean" },
+        "isFavorite": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "lessonId", "completed", "isFavorite", "updatedAt"]
+    },
+    "NotificationRead": {
+      "title": "NotificationRead",
+      "description": "Tracks notification read state per user to prevent duplicate unread alerts.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "notificationId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "readAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "notificationId", "readAt"]
+    },
+    "Subject": {
+      "title": "Subject",
+      "description": "Official curriculum subject metadata.",
+      "type": "object",
+      "properties": {
+        "slug": { "type": "string", "minLength": 2, "maxLength": 80 },
+        "nameAr": { "type": "string", "minLength": 1, "maxLength": 140 },
+        "nameFr": { "type": "string", "minLength": 1, "maxLength": 140 },
+        "tracks": { "type": "array" },
+        "officialProgramRef": { "type": "string", "maxLength": 120 },
+        "iconName": { "type": "string", "maxLength": 60 },
+        "displayOrder": { "type": "number" },
+        "active": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["slug", "nameAr", "nameFr", "tracks", "displayOrder", "active", "updatedAt"]
+    },
+    "LessonSection": {
+      "title": "LessonSection",
+      "description": "Admin-managed thematic section organizing lessons.",
+      "type": "object",
+      "properties": {
+        "titleAr": { "type": "string", "minLength": 2, "maxLength": 160 },
+        "titleFr": { "type": "string", "maxLength": 160 },
+        "descriptionAr": { "type": "string", "maxLength": 500 },
+        "descriptionFr": { "type": "string", "maxLength": 500 },
+        "subjectSlug": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "track": { "type": "string", "enum": ["all", "arabic", "french", "bilingual"] },
+        "level": { "type": "string", "enum": ["foundation", "intermediate", "advanced"] },
+        "displayOrder": { "type": "number" },
+        "active": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["titleAr", "subjectSlug", "track", "level", "displayOrder", "active", "createdAt", "updatedAt"]
+    },
+    "Lesson": {
+      "title": "Lesson",
+      "description": "Training lesson stored in Firestore with bilingual content.",
+      "type": "object",
+      "properties": {
+        "numericId": { "type": "number" },
+        "subjectSlug": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "sectionId": { "type": "string", "maxLength": 128 },
+        "track": { "type": "string", "enum": ["all", "arabic", "french", "bilingual"] },
+        "level": { "type": "string", "enum": ["foundation", "intermediate", "advanced"] },
+        "lessonOrder": { "type": "number" },
+        "titleAr": { "type": "string", "minLength": 2, "maxLength": 220 },
+        "titleFr": { "type": "string", "maxLength": 220 },
+        "summaryAr": { "type": "string", "maxLength": 1000 },
+        "summaryFr": { "type": "string", "maxLength": 1000 },
+        "explanationAr": { "type": "string", "maxLength": 15000 },
+        "explanationSpeechAr": { "type": "string", "maxLength": 15000 },
+        "explanationFr": { "type": "string", "maxLength": 15000 },
+        "examples": { "type": "array" },
+        "exercises": { "type": "array" },
+        "mcq": { "type": "array" },
+        "active": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["subjectSlug", "track", "level", "lessonOrder", "titleAr", "explanationAr", "active", "createdAt", "updatedAt"]
+    },
+    "SubscriptionPlan": {
+      "title": "SubscriptionPlan",
+      "description": "Platform subscription package.",
+      "type": "object",
+      "properties": {
+        "numericId": { "type": "number" },
+        "slug": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "nameAr": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "nameFr": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "descriptionAr": { "type": "string", "maxLength": 500 },
+        "descriptionFr": { "type": "string", "maxLength": 500 },
+        "priceMru": { "type": "number" },
+        "priceEur": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 10 },
+        "durationDays": { "type": "number" },
+        "billingCycle": { "type": "string", "enum": ["free", "monthly", "quarterly", "season", "annual"] },
+        "featuresAr": { "type": "array" },
+        "featuresFr": { "type": "array" },
+        "isPopular": { "type": "boolean" },
+        "active": { "type": "boolean" },
+        "displayOrder": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["slug", "nameAr", "nameFr", "priceMru", "priceEur", "currency", "durationDays", "billingCycle", "active", "displayOrder", "updatedAt"]
+    },
+    "UserSubscription": {
+      "title": "UserSubscription",
+      "description": "User subscription record.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "planId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "planSlug": { "type": "string", "maxLength": 64 },
+        "planNameAr": { "type": "string", "maxLength": 160 },
+        "planNameFr": { "type": "string", "maxLength": 160 },
+        "billingCycle": { "type": "string", "enum": ["free", "monthly", "quarterly", "season", "annual"] },
+        "status": { "type": "string", "enum": ["pending", "active", "expired", "cancelled"] },
+        "orderId": { "type": "string", "maxLength": 128 },
+        "startsAt": { "type": "string", "format": "date-time" },
+        "expiresAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "planId", "planSlug", "planNameAr", "planNameFr", "billingCycle", "status", "startsAt", "createdAt", "updatedAt"]
+    },
+    "SubscriptionRequest": {
+      "title": "SubscriptionRequest",
+      "description": "Manual-review subscription payment request awaiting official admin approval (expiresAt remains null until approved).",
+      "type": "object",
+      "properties": {
+        "subscriptionRequestId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "userId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "userEmail": { "type": "string", "format": "email", "maxLength": 200 },
+        "userName": { "type": "string", "maxLength": 140 },
+        "planId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "planSlug": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "planName": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "amount": { "type": "number" },
+        "paidAmount": { "type": "number" },
+        "remainingAmount": { "type": "number" },
+        "currency": { "type": "string", "minLength": 1, "maxLength": 10 },
+        "paymentMethod": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "status": { "type": "string", "enum": ["pending_review", "partial_pending", "needs_info", "approved", "rejected", "expired"] },
+        "transactionId": { "type": "string", "maxLength": 120 },
+        "transactionReference": { "type": "string", "maxLength": 120 },
+        "transactionAt": { "type": "string", "maxLength": 64 },
+        "beneficiaryName": { "type": "string", "maxLength": 140 },
+        "proofHash": { "type": "string", "maxLength": 128 },
+        "proofRefId": { "type": "string", "maxLength": 128 },
+        "uploadedAt": { "type": "string", "maxLength": 64 },
+        "secondPaymentMethod": { "type": "string", "maxLength": 40 },
+        "secondTransactionId": { "type": "string", "maxLength": 120 },
+        "secondTransactionReference": { "type": "string", "maxLength": 120 },
+        "secondTransactionAt": { "type": "string", "maxLength": 64 },
+        "secondProofHash": { "type": "string", "maxLength": 128 },
+        "secondUploadedAt": { "type": "string", "maxLength": 64 },
+        "adminClarificationNote": { "type": "string", "maxLength": 600 },
+        "startsAt": { "type": "string", "maxLength": 64 },
+        "expiresAt": { "type": "string", "format": "date-time" },
+        "approvedBy": { "type": "string", "maxLength": 200 },
+        "approvedAt": { "type": "string", "maxLength": 64 },
+        "rejectionReason": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "subscriptionRequestId", "userId", "uid", "userEmail", "userName", "planId",
+        "planSlug", "planName", "amount", "currency", "paymentMethod", "status",
+        "transactionId", "transactionReference", "transactionAt", "beneficiaryName",
+        "proofHash", "proofRefId", "uploadedAt", "expiresAt", "createdAt", "updatedAt"
+      ]
+    },
+    "PaymentProof": {
+      "title": "PaymentProof",
+      "description": "Uploaded transfer screenshot proof linked atomically to a subscription request.",
+      "type": "object",
+      "properties": {
+        "subscriptionRequestId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "paymentMethod": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "transactionId": { "type": "string", "maxLength": 120 },
+        "transactionReference": { "type": "string", "maxLength": 120 },
+        "proofHash": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "proofDataUrl": { "type": "string", "minLength": 1, "maxLength": 950000 },
+        "uploadedAt": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "subscriptionRequestId", "uid", "paymentMethod", "transactionId",
+        "transactionReference", "proofHash", "proofDataUrl", "uploadedAt", "createdAt"
+      ]
+    },
+    "ApprovedPayment": {
+      "title": "ApprovedPayment",
+      "description": "Immutable approved payment ledger record created solely by official admin upon manual verification.",
+      "type": "object",
+      "properties": {
+        "paymentId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "subscriptionRequestId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "planSlug": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "amount": { "type": "number" },
+        "currency": { "type": "string", "minLength": 1, "maxLength": 10 },
+        "paymentMethod": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "transactionReference": { "type": "string", "maxLength": 120 },
+        "transactionId": { "type": "string", "maxLength": 120 },
+        "approvedBy": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "approvedAt": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "paymentId", "subscriptionRequestId", "uid", "planSlug", "amount",
+        "currency", "paymentMethod", "transactionReference", "transactionId",
+        "approvedBy", "approvedAt", "createdAt"
+      ]
+    },
+    "PaymentMethodConfigDoc": {
+      "title": "PaymentMethodConfigDoc",
+      "description": "Admin-managed Mauritanian & card payment channel configuration.",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "nameAr": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "nameFr": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "accountNumber": { "type": "string", "maxLength": 120 },
+        "beneficiaryName": { "type": "string", "maxLength": 140 },
+        "instructionsAr": { "type": "string", "maxLength": 1000 },
+        "instructionsFr": { "type": "string", "maxLength": 1000 },
+        "active": { "type": "boolean" },
+        "displayOrder": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["code", "nameAr", "nameFr", "active", "displayOrder", "updatedAt"]
+    },
+    "PlanLimitDoc": {
+      "title": "PlanLimitDoc",
+      "description": "Admin-configurable quota thresholds per subscription tier.",
+      "type": "object",
+      "properties": {
+        "tier": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "dailyLessons": { "type": "number" },
+        "dailyQuestions": { "type": "number" },
+        "dailyExams": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["tier", "dailyLessons", "dailyQuestions", "dailyExams", "updatedAt"]
+    },
+    "PaymentOrder": {
+      "title": "PaymentOrder",
+      "description": "Legacy payment order record (read-only audit; cannot self-activate paid plans).",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "userEmail": { "type": "string", "format": "email", "maxLength": 200 },
+        "userName": { "type": "string", "maxLength": 140 },
+        "planId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "planNameAr": { "type": "string", "maxLength": 160 },
+        "planNameFr": { "type": "string", "maxLength": 160 },
+        "amountMru": { "type": "number" },
+        "amountEur": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 10 },
+        "cardBrand": { "type": "string", "enum": ["visa", "mastercard"] },
+        "cardLast4": { "type": "string", "minLength": 4, "maxLength": 4 },
+        "cardholderName": { "type": "string", "maxLength": 120 },
+        "phone": { "type": "string", "maxLength": 40 },
+        "wilaya": { "type": "string", "maxLength": 100 },
+        "city": { "type": "string", "maxLength": 100 },
+        "status": { "type": "string", "enum": ["pending", "succeeded", "failed", "cancelled"] },
+        "transactionRef": { "type": "string", "maxLength": 120 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "userEmail", "userName", "planId", "planNameAr", "planNameFr", "amountMru", "amountEur", "currency", "cardBrand", "cardLast4", "status", "transactionRef", "createdAt", "updatedAt"]
+    },
+    "NotificationMessage": {
+      "title": "NotificationMessage",
+      "description": "Targeted notification record with scope and eligibility cutoff timestamp.",
+      "type": "object",
+      "properties": {
+        "titleAr": { "type": "string", "minLength": 1, "maxLength": 180 },
+        "titleFr": { "type": "string", "maxLength": 180 },
+        "bodyAr": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "bodyFr": { "type": "string", "maxLength": 2000 },
+        "type": { "type": "string", "enum": ["info", "exam", "alert", "offer"] },
+        "targetScope": { "type": "string", "enum": ["current_users", "conditional", "specific_users", "all_including_future"] },
+        "targetTrack": { "type": "string", "enum": ["all", "arabic", "french", "bilingual"] },
+        "targetLevel": { "type": "string", "enum": ["all", "foundation", "intermediate", "advanced"] },
+        "targetSubscription": { "type": "string", "enum": ["all", "paid", "free"] },
+        "targetUserIds": { "type": "array" },
+        "eligibleBefore": { "type": "string", "format": "date-time" },
+        "createdByUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["titleAr", "bodyAr", "type", "targetScope", "targetTrack", "targetLevel", "targetSubscription", "targetUserIds", "createdByUid", "createdAt"]
+    },
+    "SupportConversation": {
+      "title": "SupportConversation",
+      "description": "Direct real-time support conversation between a verified user and the official admin.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "userName": { "type": "string", "minLength": 1, "maxLength": 140 },
+        "userEmail": { "type": "string", "format": "email", "maxLength": 200 },
+        "subject": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "status": { "type": "string", "enum": ["open", "pending", "closed"] },
+        "lastMessagePreview": { "type": "string", "maxLength": 300 },
+        "lastSenderRole": { "type": "string", "enum": ["user", "admin"] },
+        "unreadForUser": { "type": "number" },
+        "unreadForAdmin": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "userName", "userEmail", "subject", "status", "lastMessagePreview", "lastSenderRole", "unreadForUser", "unreadForAdmin", "createdAt", "updatedAt"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Single message inside a support conversation.",
+      "type": "object",
+      "properties": {
+        "conversationId": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "conversationOwnerUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "senderUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "senderName": { "type": "string", "minLength": 1, "maxLength": 140 },
+        "senderRole": { "type": "string", "enum": ["user", "admin"] },
+        "text": { "type": "string", "minLength": 1, "maxLength": 4000 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["conversationId", "conversationOwnerUid", "senderUid", "senderName", "senderRole", "text", "createdAt"]
+    },
+    "SiteConfigDoc": {
+      "title": "SiteConfigDoc",
+      "description": "Platform global site settings (ticker, hero slides, grading policy, maintenance flags).",
+      "type": "object",
+      "properties": {
+        "tickerMessages": { "type": "array" },
+        "heroSlides": { "type": "array" },
+        "gradingPolicy": { "type": "object" },
+        "supportEnabled": { "type": "boolean" },
+        "maintenanceMode": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["tickerMessages", "heroSlides", "updatedAt"]
+    },
+    "AuditLogDoc": {
+      "title": "AuditLogDoc",
+      "description": "Admin security audit entry.",
+      "type": "object",
+      "properties": {
+        "actorUid": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "actorEmail": { "type": "string", "format": "email", "maxLength": 200 },
+        "action": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "targetType": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "targetId": { "type": "string", "maxLength": 128 },
+        "details": { "type": "string", "maxLength": 600 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["actorUid", "actorEmail", "action", "targetType", "targetId", "details", "createdAt"]
+    },
+    "ConnectionTestDoc": {
+      "title": "ConnectionTestDoc",
+      "description": "Read-only connection verification document.",
+      "type": "object",
+      "properties": {
+        "ok": { "type": "boolean" }
+      }
+    }
+  },
+  "firestore": {
+    "/admins/{userId}": {
+      "schema": { "$ref": "#/entities/AdminRecord" },
+      "description": "Admin registry restricted strictly to elalyatalebjidou@gmail.com."
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Non-PII user academic profiles readable only by owner or official admin."
+    },
+    "/users/{userId}/private/{docId}": {
+      "schema": { "$ref": "#/entities/UserPrivateInfo" },
+      "description": "Isolated PII subcollection (email, phone, wilaya, city)."
+    },
+    "/users/{userId}/lessonProgress/{lessonId}": {
+      "schema": { "$ref": "#/entities/LessonProgress" },
+      "description": "Per-user lesson completion and favorites."
+    },
+    "/users/{userId}/notificationReads/{notificationId}": {
+      "schema": { "$ref": "#/entities/NotificationRead" },
+      "description": "Per-user read tracking for targeted notifications."
+    },
+    "/subjects/{subjectId}": {
+      "schema": { "$ref": "#/entities/Subject" },
+      "description": "Official curriculum subjects."
+    },
+    "/lessonSections/{sectionId}": {
+      "schema": { "$ref": "#/entities/LessonSection" },
+      "description": "Admin-managed lesson sections."
+    },
+    "/lessons/{lessonId}": {
+      "schema": { "$ref": "#/entities/Lesson" },
+      "description": "Training lessons catalog."
+    },
+    "/plans/{planId}": {
+      "schema": { "$ref": "#/entities/SubscriptionPlan" },
+      "description": "Subscription plans."
+    },
+    "/subscriptions/{subscriptionId}": {
+      "schema": { "$ref": "#/entities/UserSubscription" },
+      "description": "User subscription records."
+    },
+    "/subscriptionRequests/{requestId}": {
+      "schema": { "$ref": "#/entities/SubscriptionRequest" },
+      "description": "Manual-review Mauritanian payment subscription requests."
+    },
+    "/paymentProofs/{proofId}": {
+      "schema": { "$ref": "#/entities/PaymentProof" },
+      "description": "Uploaded transfer screenshot receipts linked to subscription requests."
+    },
+    "/payments/{paymentId}": {
+      "schema": { "$ref": "#/entities/ApprovedPayment" },
+      "description": "Immutable approved payment ledger entries created by official admin."
+    },
+    "/paymentMethods/{methodId}": {
+      "schema": { "$ref": "#/entities/PaymentMethodConfigDoc" },
+      "description": "Configurable local & card payment channels."
+    },
+    "/planLimits/{tierId}": {
+      "schema": { "$ref": "#/entities/PlanLimitDoc" },
+      "description": "Configurable daily limits per plan tier."
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/PaymentOrder" },
+      "description": "Legacy payment order records."
+    },
+    "/notifications/{notificationId}": {
+      "schema": { "$ref": "#/entities/NotificationMessage" },
+      "description": "Targeted & scheduled notifications with eligibility cutoff timestamp."
+    },
+    "/conversations/{conversationId}": {
+      "schema": { "$ref": "#/entities/SupportConversation" },
+      "description": "Real-time support conversations between verified users and admin."
+    },
+    "/conversations/{conversationId}/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/ChatMessage" },
+      "description": "Real-time messages inside a support conversation."
+    },
+    "/siteConfig/{configId}": {
+      "schema": { "$ref": "#/entities/SiteConfigDoc" },
+      "description": "Site ticker, hero slides, grading policy, and global platform toggles."
+    },
+    "/auditLogs/{logId}": {
+      "schema": { "$ref": "#/entities/AuditLogDoc" },
+      "description": "Admin action audit trail."
+    },
+    "/test/connection": {
+      "schema": { "$ref": "#/entities/ConnectionTestDoc" },
+      "description": "Startup Firestore server connectivity check."
+    }
+  }
+}

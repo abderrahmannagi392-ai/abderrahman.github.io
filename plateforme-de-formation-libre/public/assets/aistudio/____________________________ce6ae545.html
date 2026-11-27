@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>أهلاً وسهلاً – التكوين الحر</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600&family=Noto+Serif:wght@400;700&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--box:#eee;--ink:#3a4650;--mute:#9aa3a8;--field:#fff;--line:#ccc;--brand:#a4cc39;--brand-d:#7c9e1c;--btn-ink:#2b3a1a;--err:#b80000;--errbg:#ffeef0;--errline:#f5c2c7;--wave:#d7ebaa;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10150d;--box:#1a2115;--ink:#e3eadb;--mute:#7f8a78;--field:#232c1c;--line:#38442f;--btn-ink:#1a2410;--err:#ff8f8f;--errbg:#3a1d1f;--errline:#6b2e32;--wave:#2b3a17}}
+:root[data-theme="dark"]{--bg:#10150d;--box:#1a2115;--ink:#e3eadb;--mute:#7f8a78;--field:#232c1c;--line:#38442f;--btn-ink:#1a2410;--err:#ff8f8f;--errbg:#3a1d1f;--errline:#6b2e32;--wave:#2b3a17}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:"Noto Naskh Arabic","Noto Serif",serif;font-size:14px;position:relative;overflow-x:hidden}
+.kufi{font-family:"Reem Kufi",sans-serif}
+.wrap{position:relative;z-index:2;max-width:440px;margin:0 auto;padding:44px 16px 150px;text-align:center}
+/* floating faint letters */
+.letters{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.letters span{position:absolute;bottom:-80px;inset-inline-start:var(--x);font-family:"Reem Kufi",sans-serif;font-size:var(--s);color:var(--brand);opacity:.13;animation:float var(--d) linear var(--w) infinite}
+@keyframes float{to{transform:translateY(-120vh) rotate(var(--r))}}
+/* headline */
+.title{margin:0;font-family:"Reem Kufi",sans-serif;font-size:2rem;font-weight:700;color:var(--ink);display:inline-block;position:relative;padding-bottom:10px}
+.title svg{position:absolute;inset-inline:0;bottom:-2px;width:100%;height:12px;overflow:visible}
+.title path{fill:none;stroke:var(--brand);stroke-width:4;stroke-linecap:round;stroke-dasharray:240;stroke-dashoffset:240;animation:draw 1s .5s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.tag{margin:6px 0 22px;font-family:"Reem Kufi",sans-serif;color:var(--brand-d);font-size:1rem}
+/* entrance (one orchestrated moment) */
+.in{opacity:0;transform:translateY(18px);animation:up .7s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i,0)*90ms + 150ms)}
+@keyframes up{to{opacity:1;transform:none}}
+.view{display:none}.view.on{display:block}
+.box{background:var(--box);border-radius:6px;padding:24px;margin-bottom:16px;text-align:start}
+.box.row{display:flex;align-items:center;justify-content:center;gap:10px;padding:16px}
+label,.lbl{display:block;margin-bottom:8px;font-size:13.5px}
+.field{position:relative;margin-bottom:16px}
+input,select{width:100%;height:36px;border:1px solid var(--line);border-radius:3px;background:var(--field);color:var(--ink);font:inherit;padding:0 12px;transition:border-color .25s,box-shadow .25s}
+input::placeholder{color:var(--mute)}
+input:focus,select:focus{outline:0;border-color:var(--brand-d);box-shadow:0 0 0 4px color-mix(in srgb,var(--brand) 28%,transparent)}
+input[dir=ltr]{text-align:left}
+.pw input{padding-inline-start:38px}
+.eye{position:absolute;inset-inline-start:6px;bottom:2px;width:30px;height:32px;border:0;background:none;color:#69747a;cursor:pointer;display:grid;place-items:center}
+.eye:hover{color:var(--ink)}
+.eye svg{transition:transform .25s}.eye:active svg{transform:scale(.8)}
+.meter{display:flex;gap:4px;margin:-8px 0 14px;height:3px}
+.meter i{flex:1;border-radius:3px;background:var(--line);transition:background .3s}
+.meter[data-l="1"] i:nth-child(-n+1){background:#e0663d}
+.meter[data-l="2"] i:nth-child(-n+2){background:#e3a72f}
+.meter[data-l="3"] i:nth-child(-n+3){background:var(--brand-d)}
+.meter[data-l="4"] i{background:#2e8b57}
+.selects{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px;margin-bottom:22px}
+.selects label{font-size:12px;margin-bottom:6px}
+select{font-size:12.5px;padding:0 8px;height:36px}
+/* buttons */
+.btn{position:relative;overflow:hidden;border:1px solid var(--brand-d);background:var(--brand);color:var(--btn-ink);font:inherit;font-size:14px;padding:9px 26px;border-radius:3px;cursor:pointer;transition:transform .2s,box-shadow .3s}
+.btn.sm{padding:5px 14px;font-size:13px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px -8px var(--brand-d)}
+.btn:active{transform:scale(.97)}
+.btn::after{content:"";position:absolute;top:0;bottom:0;width:40px;inset-inline-start:-60px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg)}
+.btn:hover::after{animation:shine .7s}
+@keyframes shine{to{inset-inline-start:120%}}
+.btn .ld{display:none;width:16px;height:16px;border:2px solid rgba(0,0,0,.2);border-top-color:var(--btn-ink);border-radius:50%;animation:rot .6s linear infinite;margin:0 auto}
+@keyframes rot{to{transform:rotate(360deg)}}
+.btn.loading .t{display:none}.btn.loading .ld{display:block}
+.actions{display:flex;align-items:center;gap:22px}
+a,.lnk{color:var(--brand-d);text-decoration:none;cursor:pointer;background:none;border:0;font:inherit;padding:0}
+a:hover,.lnk:hover{text-decoration:underline}
+.fr{margin:6px 0 16px;font-family:"Noto Serif",serif;font-size:15px}
+.fr b{color:var(--brand-d)}
+.admin{display:inline-block;color:#69747a;text-decoration:underline;font-size:12.5px;margin-top:4px}
+/* alert */
+.alert{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s,margin .35s}
+.alert.show{grid-template-rows:1fr;margin-bottom:16px}
+.alert>div{overflow:hidden}
+.alert p{margin:0;padding:14px 16px;background:var(--errbg);border:1px solid var(--errline);border-radius:4px;color:var(--err);font-weight:700;font-family:"Noto Serif",serif;font-size:13.5px;display:flex;justify-content:center;gap:10px;align-items:center}
+.alert.show p{animation:shake .5s}
+@keyframes shake{20%,60%{transform:translateX(7px)}40%,80%{transform:translateX(-7px)}}
+/* bottom wave from original, gently moving */
+.wave{position:fixed;inset:auto 0 0 0;height:90px;z-index:1;pointer-events:none;overflow:hidden}
+.wave svg{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:drift 26s linear infinite}
+.wave svg+svg{animation-duration:38s;animation-direction:reverse;opacity:.6;height:70%}
+.wave path{fill:var(--wave)}
+@keyframes drift{to{transform:translateX(-50%)}}
+/* hide scrollbar line (page still scrolls) */
+html{scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0}
+/* forgot password */
+.steps{display:flex;margin:0 0 22px;font-size:12px}
+.st{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;color:var(--mute);transition:color .3s}
+.st i{width:24px;height:24px;border-radius:50%;background:var(--line);color:#fff;display:grid;place-items:center;font-style:normal;font-size:12px;position:relative;z-index:1;transition:background .4s,transform .4s}
+.st:not(:last-child)::before{content:"";position:absolute;top:11px;inset-inline-start:50%;width:100%;height:2px;background:var(--line);transition:background .5s}
+.st.done::before{background:var(--brand-d)}
+.st.done i{background:var(--brand-d)}
+.st.cur i{background:var(--brand);color:var(--btn-ink);transform:scale(1.15);animation:ring 2s infinite}
+.st.cur,.st.done{color:var(--ink)}
+@keyframes ring{70%{box-shadow:0 0 0 9px transparent}0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--brand) 60%,transparent)}}
+.pn{display:none}
+.pn.on{display:block;animation:pin .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes pin{from{opacity:0;transform:translateX(-24px)}}
+.hd{font-family:"Reem Kufi",sans-serif;font-size:1.15rem;margin:0 0 6px}
+.mut{color:var(--mute);font-size:13px;line-height:1.9;margin:0 0 16px}
+.opts{display:grid;gap:10px;margin-bottom:18px}
+.opt{position:relative;display:flex;gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:6px;background:var(--field);cursor:pointer;transition:border-color .25s,background .25s,box-shadow .25s;margin:0}
+.opt input{position:absolute;opacity:0;width:0;height:0}
+.opt .ic{width:40px;height:40px;border-radius:8px;background:var(--box);display:grid;place-items:center;color:var(--brand-d);flex:none;transition:.25s}
+.opt b{display:block;font-family:"Reem Kufi",sans-serif;font-weight:600;font-size:15px;margin-bottom:2px}
+.opt small{display:block;color:var(--mute);font-size:12px;line-height:1.7}
+.opt .ck{margin-inline-start:auto;width:20px;height:20px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;transition:.25s}
+.opt:hover{border-color:var(--brand-d)}
+.opt:has(input:checked){border-color:var(--brand-d);background:color-mix(in srgb,var(--brand) 12%,var(--field));box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 22%,transparent)}
+.opt:has(input:checked) .ck{background:var(--brand-d);border-color:var(--brand-d)}
+.opt:has(input:checked) .ck::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.opt:has(input:checked) .ic{background:var(--brand);color:var(--btn-ink)}
+.opt:has(input:focus-visible){outline:3px solid var(--brand-d);outline-offset:2px}
+.ferr{color:var(--err);font-size:12.5px;max-height:0;overflow:hidden;opacity:0;transition:max-height .3s,opacity .3s,margin .3s}
+.ferr.show{max-height:40px;opacity:1;margin-top:6px}
+.full{width:100%}
+.okc{width:68px;height:68px;margin:2px auto 14px;display:block}
+.okc circle{fill:none;stroke:var(--brand);stroke-width:3;stroke-dasharray:176;stroke-dashoffset:176;animation:draw 0.8s .1s ease forwards;transform-origin:center;transform:rotate(-90deg)}
+.okc path{fill:none;stroke:var(--brand-d);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:44;stroke-dashoffset:44;animation:draw .5s .7s ease forwards}
+.center{text-align:center}
+.mail{display:inline-block;direction:ltr;font-weight:700;color:var(--ink);background:var(--field);border:1px dashed var(--line);border-radius:4px;padding:2px 10px;margin:2px 0}
+.otp{display:flex;justify-content:center;gap:8px;direction:ltr;margin:6px 0 4px}
+.otp input{width:44px;height:52px;padding:0;text-align:center;font-family:"Reem Kufi",sans-serif;font-size:1.5rem;border-radius:6px}
+.otp.bad{animation:shake .5s}
+.otp.bad input{border-color:var(--err)}
+.row2{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;font-size:13px}
+.lnk[disabled]{color:var(--mute);cursor:default;text-decoration:none}
+.back{display:inline-flex;align-items:center;gap:6px;margin-bottom:14px;font-size:13px}
+:focus-visible{outline:3px solid var(--brand-d);outline-offset:2px}
+@media (max-width:420px){.selects{grid-template-columns:1fr 1fr}.selects>div:first-child{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.in{opacity:1;transform:none}.title path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="letters" id="letters" aria-hidden="true"></div>
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 50 C200 10 400 10 600 50 S1000 90 1200 50 V90 H0Z"/></svg>
+  <svg viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 60 C150 30 350 30 600 60 S1050 85 1200 60 V90 H0Z"/></svg>
+</div>
+
+<main class="wrap">
+  <!-- تسجيل الدخول -->
+  <section class="view on" id="login">
+    <h1 class="title in">أهلاً وسهلاً<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3 8 C50 2 110 2 197 7"/></svg></h1>
+    <div class="tag in" style="--i:1">تعلّم بحرّية، وطوّر مسارك.</div>
+
+    <div class="box row in" style="--i:2"><span>ليس لديك حساب؟</span><button class="btn sm" data-go="signup">إنشاء حساب</button></div>
+
+    <form class="box in" style="--i:3" novalidate id="fl">
+      <div class="alert" id="al"><div><p>أدخل بريدك الإلكتروني وكلمة المرور.</p></div></div>
+      <div class="field"><label for="le">بريدك الإلكتروني:</label><input id="le" type="email" dir="ltr" placeholder="exemple@formation-libre.mr" autocomplete="email"></div>
+      <div class="field pw"><label for="lp">كلمة المرور:</label><input id="lp" type="password" dir="ltr" autocomplete="current-password"><button type="button" class="eye" aria-label="إظهار كلمة المرور"></button></div>
+      <div class="actions"><button class="btn" type="submit"><span class="t">تسجيل دخول</span><span class="ld"></span></button><button type="button" class="lnk" data-go="forgot">نسيت كلمة مرورك؟</button></div>
+    </form>
+
+    <p class="fr in" style="--i:4"><b>Cliquez ici</b> Pour le français</p>
+    <a class="admin in" style="--i:5" href="#">إعداد المدير الأول للمنصة</a>
+  </section>
+
+  <!-- إنشاء حساب -->
+  <section class="view" id="signup">
+    <p class="fr in" style="--i:0"><b>Cliquez ici</b> To sign up in French *</p>
+    <h1 class="title in" style="--i:1;font-size:1.7rem">إنشاء حساب جديد<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3 8 C50 2 110 2 197 7"/></svg></h1>
+    <div class="tag in" style="--i:2">خطوة واحدة نحو مسارك.</div>
+
+    <div class="alert in" id="sa" style="--i:2"><div><p dir="ltr">An account with this email already exists.<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 16.5v.5"/></svg></p></div></div>
+
+    <form class="box in" style="--i:3" novalidate id="fs">
+      <div class="field"><label for="sn">الاسم الكامل:</label><input id="sn" type="text" placeholder="محمد أحمد سالم" autocomplete="name"></div>
+      <div class="field"><label for="se">بريدك الإلكتروني:</label><input id="se" type="email" dir="ltr" placeholder="exemple@formation-libre.mr" autocomplete="email"></div>
+      <div class="field pw"><label for="sp">كلمة المرور:</label><input id="sp" type="password" dir="ltr" autocomplete="new-password"><button type="button" class="eye" aria-label="إظهار كلمة المرور"></button></div>
+      <div class="meter" id="mt" data-l="0"><i></i><i></i><i></i><i></i></div>
+      <div class="field pw"><label for="sc">تأكيد كلمة المرور:</label><input id="sc" type="password" dir="ltr" autocomplete="new-password"><button type="button" class="eye" aria-label="إظهار كلمة المرور"></button></div>
+      <div class="selects">
+        <div><label for="s1">المسارات والتخصصات:</label><select id="s1"><option>معلم مزدوج</option><option>معلم عربي</option><option>معلم فرنسي</option></select></div>
+        <div><label for="s2">المستويات:</label><select id="s2"><option>المستوى التأسيسي</option><option>المستوى المتوسط</option><option>المستوى المتقدم</option></select></div>
+        <div><label for="s3">اللغة:</label><select id="s3"><option>العربية</option><option>Français</option></select></div>
+      </div>
+      <div class="actions"><button class="btn" type="submit"><span class="t">إنشاء حساب</span><span class="ld"></span></button><span>لديك حساب؟ <button type="button" class="lnk" data-go="login">تسجيل دخول</button></span></div>
+    </form>
+  </section>
+  <!-- نسيت كلمة المرور -->
+  <section class="view" id="forgot">
+    <h1 class="title in">استعادة كلمة المرور<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3 8 C50 2 110 2 197 7"/></svg></h1>
+    <div class="tag in" style="--i:1">نعيدك إلى حسابك في خطوات بسيطة.</div>
+
+    <div class="box in" style="--i:2">
+      <div class="steps" aria-hidden="true">
+        <div class="st cur"><i>1</i>الطريقة</div><div class="st"><i>2</i>التحقق</div><div class="st"><i>3</i>كلمة المرور</div>
+      </div>
+
+      <!-- 1: اختيار الطريقة -->
+      <div class="pn on" id="pn0">
+        <h2 class="hd">كيف تريد استعادة حسابك؟</h2>
+        <p class="mut">اختر الطريقة الأنسب لك، ثم أدخل بريدك الإلكتروني.</p>
+        <div class="opts" role="radiogroup">
+          <label class="opt"><input type="radio" name="m" value="link" checked>
+            <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+            <span><b>رابط عبر البريد الإلكتروني</b><small>نرسل إليك رابطاً آمناً لإعادة تعيين كلمة المرور.</small></span><span class="ck"></span></label>
+          <label class="opt"><input type="radio" name="m" value="otp">
+            <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <span><b>رمز تحقق (OTP)</b><small>نرسل رمزاً من 6 أرقام إلى بريدك لإدخاله هنا.</small></span><span class="ck"></span></label>
+        </div>
+        <div class="field" style="margin-bottom:18px"><label for="fe">بريدك الإلكتروني:</label><input id="fe" type="email" dir="ltr" placeholder="exemple@formation-libre.mr" autocomplete="email"><div class="ferr" id="fee" role="alert"></div></div>
+        <button class="btn full" id="fcont" type="button"><span class="t">متابعة</span><span class="ld"></span></button>
+      </div>
+
+      <!-- 2أ: تم إرسال الرابط -->
+      <div class="pn center" id="pn1">
+        <svg class="okc" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28"/><path d="M20 33l9 9 16-18"/></svg>
+        <h2 class="hd">تحقق من بريدك الإلكتروني</h2>
+        <p class="mut">أرسلنا رابط إعادة التعيين إلى<br><span class="mail" id="mailL"></span><br>الرابط صالح لمدة 30 دقيقة. إن لم تجده فتفقّد البريد غير المرغوب.</p>
+        <div class="row2"><button type="button" class="lnk chg">تغيير البريد أو الطريقة</button><button type="button" class="lnk" id="rl"></button></div>
+      </div>
+
+      <!-- 2ب: إدخال OTP -->
+      <div class="pn center" id="po1">
+        <h2 class="hd">أدخل رمز التحقق</h2>
+        <p class="mut">أرسلنا رمزاً من 6 أرقام إلى<br><span class="mail" id="mailO"></span></p>
+        <div class="otp" id="otp">
+          <input inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="الرقم 1"><input inputmode="numeric" maxlength="1" aria-label="الرقم 2"><input inputmode="numeric" maxlength="1" aria-label="الرقم 3"><input inputmode="numeric" maxlength="1" aria-label="الرقم 4"><input inputmode="numeric" maxlength="1" aria-label="الرقم 5"><input inputmode="numeric" maxlength="1" aria-label="الرقم 6">
+        </div>
+        <div class="ferr" id="oe" role="alert"></div>
+        <button class="btn full" id="ov" type="button" style="margin-top:16px"><span class="t">تأكيد الرمز</span><span class="ld"></span></button>
+        <div class="row2"><button type="button" class="lnk chg">تغيير البريد أو الطريقة</button><button type="button" class="lnk" id="ro"></button></div>
+        <p class="mut" style="margin:12px 0 0;font-size:12px">للتجربة فقط: الرمز الصحيح 123456</p>
+      </div>
+
+      <!-- 3: كلمة مرور جديدة -->
+      <div class="pn" id="pn2">
+        <h2 class="hd">كلمة المرور الجديدة</h2>
+        <p class="mut">اختر كلمة مرور قوية لا تقل عن 8 أحرف.</p>
+        <div class="field pw"><label for="np">كلمة المرور الجديدة:</label><input id="np" type="password" dir="ltr" autocomplete="new-password"><button type="button" class="eye" aria-label="إظهار كلمة المرور"></button></div>
+        <div class="meter" id="mt2" data-l="0"><i></i><i></i><i></i><i></i></div>
+        <div class="field pw"><label for="nc">تأكيد كلمة المرور:</label><input id="nc" type="password" dir="ltr" autocomplete="new-password"><button type="button" class="eye" aria-label="إظهار كلمة المرور"></button><div class="ferr" id="ne" role="alert"></div></div>
+        <button class="btn full" id="ns" type="button"><span class="t">حفظ كلمة المرور</span><span class="ld"></span></button>
+      </div>
+
+      <!-- تم -->
+      <div class="pn center" id="pd">
+        <svg class="okc" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28"/><path d="M20 33l9 9 16-18"/></svg>
+        <h2 class="hd">تم تغيير كلمة المرور</h2>
+        <p class="mut">يمكنك الآن تسجيل الدخول بكلمة مرورك الجديدة.</p>
+        <button class="btn full" type="button" data-go="login">العودة لتسجيل الدخول</button>
+      </div>
+    </div>
+
+    <div class="in" style="--i:3"><button type="button" class="lnk back" data-go="login">← العودة لتسجيل الدخول</button></div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function go(v){
+    document.querySelectorAll('.view').forEach(function(s){s.classList.toggle('on',s.id===v)});
+    document.title=v==='login'?'أهلاً وسهلاً – التكوين الحر':'إنشاء حساب – التكوين الحر';
+    window.scrollTo(0,0);
+  }
+  document.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){go(b.dataset.go)}});
+  var on='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+      off='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3l18 18M10.6 6.1A10 10 0 0112 6c7 0 11 6 11 6a17 17 0 01-3.2 3.9M6.6 6.6A17 17 0 001 12s4 7 11 7a10 10 0 004.2-.9"/></svg>';
+  document.querySelectorAll('.eye').forEach(function(b){
+    b.innerHTML=on;
+    b.onclick=function(){var i=b.parentNode.querySelector('input'),h=i.type==='password';i.type=h?'text':'password';b.innerHTML=h?off:on};
+  });
+  var sp=$('sp');
+  sp.oninput=function(){var v=sp.value,n=0;if(v.length>=8)n++;if(/[A-Z]/.test(v)&&/[a-z]/.test(v))n++;if(/\d/.test(v))n++;if(/[^\w\s]/.test(v)||v.length>=12)n++;$('mt').dataset.l=v?Math.max(1,n):0};
+  function demo(form,alertEl,fn,txt){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();var b=form.querySelector('.btn');
+      alertEl.classList.remove('show');void alertEl.offsetWidth;b.classList.add('loading');
+      setTimeout(function(){b.classList.remove('loading');var m=fn();if(m){if(txt)alertEl.querySelector('p').firstChild.textContent=m;alertEl.classList.add('show')}},800);
+    });
+  }
+  demo($('fl'),$('al'),function(){return 'البريد الإلكتروني أو كلمة المرور غير صحيحة.'},true);
+  demo($('fs'),$('sa'),function(){return $('se').value.toLowerCase()==='nom@gmail.com'?'An account with this email already exists.':null});
+  /* ===== forgot password flow ===== */
+  var fg=$('forgot'),stEls=fg.querySelectorAll('.st'),tm,mail='';
+  function show(p,s){fg.querySelectorAll('.pn').forEach(function(x){x.classList.toggle('on',x.id===p)});stEls.forEach(function(e,i){var d=i<s-1;e.classList.toggle('done',d);e.classList.toggle('cur',i===s-1);e.querySelector('i').textContent=d?'✓':(i+1)})}
+  function ferr(el,m){el.textContent=m;el.classList.toggle('show',!!m)}
+  function mask(m){var p=m.split('@');return p[0].charAt(0)+'•••@'+p[1]}
+  function busy(b,fn){b.classList.add('loading');setTimeout(function(){b.classList.remove('loading');fn()},900)}
+  function count(btn,n){clearInterval(tm);btn.disabled=true;function t(){btn.textContent=n>0?'إعادة الإرسال بعد 0:'+('0'+n).slice(-2):'إعادة الإرسال';if(n<=0){btn.disabled=false;clearInterval(tm)}n--}t();tm=setInterval(t,1000)}
+  var otpIn=fg.querySelectorAll('#otp input');
+  function clearOtp(){otpIn.forEach(function(i){i.value=''});ferr($('oe'),'')}
+  function reset(){clearInterval(tm);show('pn0',1);$('fe').value='';ferr($('fee'),'');clearOtp();$('np').value='';$('nc').value='';$('mt2').dataset.l=0;ferr($('ne'),'')}
+  document.querySelectorAll('[data-go="forgot"]').forEach(function(b){b.addEventListener('click',reset)});
+  fg.querySelectorAll('.chg').forEach(function(b){b.onclick=function(){clearInterval(tm);show('pn0',1)}});
+  $('fcont').onclick=function(){
+    var v=$('fe').value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ferr($('fee'),'أدخل بريداً إلكترونياً صحيحاً.');$('fe').focus();return}
+    ferr($('fee'),'');mail=v;var m=fg.querySelector('input[name=m]:checked').value;
+    busy($('fcont'),function(){
+      if(m==='link'){$('mailL').textContent=mask(mail);show('pn1',2);count($('rl'),30)}
+      else{$('mailO').textContent=mask(mail);clearOtp();show('po1',2);count($('ro'),30);otpIn[0].focus()}
+    });
+  };
+  $('fe').oninput=function(){ferr($('fee'),'')};
+  $('rl').onclick=function(){count($('rl'),30)};
+  $('ro').onclick=function(){clearOtp();count($('ro'),30);otpIn[0].focus()};
+  otpIn.forEach(function(inp,i){
+    inp.addEventListener('input',function(){inp.value=inp.value.replace(/\D/g,'').slice(-1);ferr($('oe'),'');$('otp').classList.remove('bad');if(inp.value&&i<5)otpIn[i+1].focus()});
+    inp.addEventListener('keydown',function(e){if(e.key==='Backspace'&&!inp.value&&i>0)otpIn[i-1].focus();if(e.key==='Enter')$('ov').click()});
+    inp.addEventListener('paste',function(e){var d=(e.clipboardData.getData('text')||'').replace(/\D/g,'').slice(0,6);if(!d)return;e.preventDefault();d.split('').forEach(function(c,k){otpIn[k].value=c});otpIn[Math.min(d.length,5)].focus()});
+  });
+  $('ov').onclick=function(){
+    var c=Array.prototype.map.call(otpIn,function(i){return i.value}).join('');
+    if(c.length<6){ferr($('oe'),'أدخل الرمز المكوّن من 6 أرقام.');return}
+    busy($('ov'),function(){
+      if(c==='123456'){clearInterval(tm);show('pn2',3);$('np').focus()}
+      else{ferr($('oe'),'الرمز غير صحيح. تحقق منه وأعد المحاولة.');var o=$('otp');o.classList.remove('bad');void o.offsetWidth;o.classList.add('bad')}
+    });
+  };
+  $('np').addEventListener('input',function(){var v=$('np').value,n=0;if(v.length>=8)n++;if(/[A-Z]/.test(v)&&/[a-z]/.test(v))n++;if(/\d/.test(v))n++;if(/[^\w\s]/.test(v)||v.length>=12)n++;$('mt2').dataset.l=v?Math.max(1,n):0});
+  $('ns').onclick=function(){
+    if($('np').value.length<8){ferr($('ne'),'كلمة المرور يجب ألا تقل عن 8 أحرف.');return}
+    if($('np').value!==$('nc').value){ferr($('ne'),'كلمتا المرور غير متطابقتين.');return}
+    ferr($('ne'),'');busy($('ns'),function(){show('pd',4)});
+  };
+  var box=$('letters'),ch='أبتثجحخدذرزسشصضطظعغفقكلمنهوي';
+  for(var i=0;i<12;i++){var s=document.createElement('span');s.textContent=ch[(i*5)%ch.length];
+    s.style.cssText='--x:'+(Math.random()*95)+'%;--s:'+(30+Math.random()*60)+'px;--d:'+(20+Math.random()*16)+'s;--w:-'+(Math.random()*24)+'s;--r:'+(Math.random()*50-25)+'deg';box.appendChild(s)}
+})();
+</script>
+</body>
+</html>

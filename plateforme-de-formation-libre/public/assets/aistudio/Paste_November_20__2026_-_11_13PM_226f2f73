@@ -1,0 +1,2549 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html id="ctl00_htm" dir="rtl" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head id="ctl00_Head2" profile="http://gmpg.org/xfn/11" dir="rtl"><title>
+	nwf.com. أكبر متجر إلكتروني للمحتوى العربي
+</title><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="google-site-verification" content="8oy-u7jxndLKZN-0W6ERwQC7lEEfDtnAiKkjt19aHqk" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R22LRVY4BN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-R22LRVY4BN');
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '985327646324487');
+fbq('track', 'PageView');
+</script>
+   <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "نيل وفرات",
+      "url": "https://www.neelwafurat.com",
+      "logo": "	https://www.neelwafurat.com/graphics/common/NWF_logo.png",
+      "sameAs": [
+        "https://www.facebook.com/neelwafurat",
+        "https://twitter.com/neelwafurat"
+      ]
+    }
+    </script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=985327646324487&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <style>
+</style>
+
+    <link rel="icon" href="https://www.neelwafurat.com/graphics/common/minilogo.png" type="image/png" /><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /><meta name="facebook-domain-verification" content="whys2nbmxhu8dr3ywkczn3ef4kcjto" /><meta property="fb:app_id" content="304357452971575" /><meta property="og:type" content="website" /><meta property="og:description" content="أكبر متجر إلكتروني للكتب العربيّة، الورقيّة والالكترونيّة. يتضمّن أيضاً وسائل تعليميّة وهدايا مخصّصة. حمّل مجاناً تطبيق iKitab للقراءة الرقميّة. توصيل لكل أنحاء العالم. تسوّق الآن" /><meta property="og:url" /><meta property="og:type" content="website" /><meta property="og:title" content="Nwf.Com" /><meta property="og:image" content="https://www.neelwafurat.com/graphics/common/NWF_logo.png" /><meta property="og:title" /><meta name="google-site-verification" content="cUd753tkAAO69yubYlEL-UD-6wYShaODPgY1QC6KaKU" /><meta name="description" content="أكبر متجر إلكتروني للكتب العربيّة، الورقيّة والالكترونيّة. يتضمّن أيضاً وسائل تعليميّة وهدايا مخصّصة. حمّل مجاناً تطبيق iKitab للقراءة الرقميّة. توصيل لكل أنحاء العالم. تسوّق الآن" /><meta name="title" content="Nwf.Com" /><meta name="itemKeywords" /><meta name="itemAuthor" /><meta name="GENERATOR" content="Microsoft Visual Studio.NET 7.0" /><meta name="CODE_LANGUAGE" content="Visual Basic 7.0" /><meta content="JavaScript" name="vs_defaultClientScript" /><meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema" /><meta name="keywords" content="شراء كتب عربية,Arabic,books,arabic books,bookstore,Middle east,North Africa,Egypt,Saudi Arabia,Iraq,Algeria,Morroco,Lebanon,Islam,Muslim,Gulf,Palestine,Libya,Tunisia,Jordan,United Arab Emirates,Oman,Sudan,Yemen,Syria,Quran,pdf,PDF,epub,رواية,شحن مجاني,قراءة,كتاب,عربي,كتب عربية,الإسلام,مسلمون,مصر,المملكة العربية السعودية,مكتبة" /><meta content="True" name="vs_showGrid" />
+    <link href="/css/webpages/v-639138390015016518/indexMasterPageWithTeleric.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/v-637641143530045874/jquery-3.6.0.min.js"></script>
+    
+    
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/v-637666543862847085/responsivenew.css" rel="stylesheet" />
+    <script type="text/javascript">           
+        function addtocart(obj, center, type, tempid, idautosub, msg, price, title, brand, category, size) {
+            // size = 1 only display cart without text 
+            if (msg == undefined) {
+                msg = ""
+            }
+            //var element = document.getElementById("addtocartb");
+            var element = obj;
+            element.classList.add("loadingcart");
+            //$("#addtocartb").html("جار الاضافة");            
+            if (size != 1) {
+                element.innerHTML = "جار الاضافة";
+            }
+            var id = center + type + tempid + "-" + idautosub
+            var q;
+            if (type == "h") {
+                if ((document.getElementsByClassName("qty").length > 0)) {// || (document.getElementsByClassName("mqty").length > 0)) {
+                    var width = window.innerWidth;
+                    if (width < 600) {
+                        var sel = document.getElementById("rowmobile").getElementsByClassName("qty")[0];
+                    } else {
+                        var sel = document.getElementById("rowpc").getElementsByClassName("qty")[0];
+                    }
+                    if (sel == null) {
+                        q = 1
+                    }
+                    else {
+                        q = sel.options[sel.selectedIndex].value;
+                    }
+                } else {
+                    q = 1;
+                }
+            } else {
+                if (document.getElementsByClassName("qlist").length > 0) {
+                    var width = window.innerWidth;
+                    if (width < 600) {
+                        var sel = document.getElementById("rowmobile").getElementsByClassName("qlist")[0];
+                    } else {
+                        var sel = document.getElementById("rowpc").getElementsByClassName("qlist")[0];
+                    }
+                    if (sel == null) {
+                        q = 1
+                    }
+                    else {
+                        var v = sel.options[sel.selectedIndex].value;
+                        q = v;
+                    }
+                } else {
+                    q = 1;
+                }
+            }
+            //alert(PageMethods.MyMethod("Paul Hayman"));
+            //PageMethods.addtocart(id, q, OnMyMethodComplete2);          
+            $.ajax({
+                type: "POST",
+                url: "/addtocart.asmx/addtocart",
+                data: "{ itemid: '" + id + "', num: " + q + ",msg: '" + msg + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (r) {
+                    //alert(r.d);
+                    //var element = document.getElementById("addtocartb");
+                    //alert(element.innerHTML);
+                    element.classList.remove("loadingcart");
+                    if (size != 1) {
+                        element.innerHTML = "أضف الى الطلبية";
+                    }
+                    
+                    var ctl2 = document.getElementById("ctl00_countitems");
+                    ctl2.innerText = r.d;
+                    $('.addtocartnotf').show();
+                    setTimeout(function () {
+                        $('.addtocartnotf').fadeOut('fast');
+                    }, 2500); // <-- time in milliseconds
+                    // add google gtag
+                    var total = parseFloat(q * parseFloat(price).toFixed(2)).toFixed(2);
+                    var pr = parseFloat(price).toFixed(2);
+
+                    gtag('event', 'add_to_cart', {
+                        'event_category': 'Item AddtoCart',
+                        'event_label': 'Item AddtoCart Label',
+                        currency: 'USD',
+                        items: [{
+                            id: "''" + id + "''",
+                            name: "''" + title + "''",
+                            brand: "''" + brand + "''",
+                            category: "''" + category + "''",
+                            list_name: "addtocart",
+                            price: pr,
+                            quantity: q
+                        }],
+                        value: total
+                    });
+			 // Add Facebook Pixel event
+                fbq('track', 'AddToCart');
+                },
+                error: function (r) {
+                    //alert("error" + r.responseText);
+                },
+                failure: function (r) {
+                    //alert(r.responseText);
+                }
+            });
+        }
+    </script>
+    <style>
+        @media only screen and (max-width: 600px) {
+            .addtocartnotf a {
+                margin: 7px;
+                padding: 0px 3px;
+            }
+
+            .addtocartnotf {
+                padding: 10px 0px !important;
+            }
+        }
+
+        .addtocartnotf {
+            display: none;
+            background: #c8e085;
+            padding: 20px 31px;
+            position: fixed;
+            top: 10px;
+            left: 9px;
+            margin: 5px;
+            font-weight: bold;
+            z-index: 10000;
+            box-shadow: 0 0px 10px rgb(134 140 150 / 65%);
+            text-align: center
+        }
+
+            .addtocartnotf div {
+                margin-bottom: 15px
+            }
+
+            .addtocartnotf a {
+                border-radius: 5px;
+                padding: 2px 9px;
+                margin: 11px;
+                background: #f0f3f5;
+            }
+
+        .loadingcart {
+            background-image: url(https://www.neelwafurat.com/images/icons/loadmore.gif) !important;
+            background-size: 40px;
+            opacity: 0.7
+        }
+
+        .addtocart {
+            cursor: pointer;
+            background-image: url(cart2.png);
+            background-color: #A6CE39;
+            width: 166px;
+            height: 40px;
+            text-align: right !important;
+            border-collapse: collapse;
+            text-decoration: none;
+            border: none;
+            background-repeat: no-repeat;
+            background-position: left;
+            outline: none;
+            color: #384D55;
+            font-weight: bold;
+            border-radius: 5px 5px 5px 5px;
+            -webkit-border-radius: 5px 5px 5px 5px;
+            -o-border-radius: 5px 5px 5px 5px;
+            -moz-border-radius: 5px 5px 5px 5px;
+        }
+
+        .disableaddtocart {
+            pointer-events: none;
+            background-image: url(cart3.png);
+            background-color: #e2efbf;
+            color: #b6c5a4;
+        }
+    </style>
+    <style>
+        .show {
+            display: block;
+        }
+    </style>
+    <style type="text/css">
+        .hide {
+            display: none !important
+        }
+
+        .fa, .far, .fas {
+            font-family: "Font Awesome 5 Free" !important;
+        }
+    </style>
+<style>
+    .hiddendropbtn {
+        position: relative;
+        background: rgb(239, 239, 239);
+        color: #384d55;
+        width: 170px; /* Adjust the width to fit the image and text */
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        padding-right: 20px;
+        text-align: right;
+        padding-left: 10px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+
+    .hiddendropbtn .selected-img {
+        margin-left: 5px; /* Add space between image and text */
+        margin-top: 5px;
+    }
+
+    .hiddendropbtn::after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid #384d55;
+        width: 0;
+        height: 0;
+    }
+
+    .hiddendropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .hiddendropdown-content {
+        display: none;
+        position: absolute;
+        background-color: rgb(239, 239, 239);
+        min-width: 170px; /* Increased width to accommodate padding */
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        border-radius: 8px;
+    }
+
+    .hiddendropdown-content a {
+        color: #384d55;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        background: rgb(239, 239, 239);
+        border-radius: 8px;
+        padding-right: 20px; /* Increased padding-right for "All Stores" */
+    }
+
+    .hiddendropdown-content a[data-value="all"] {
+        padding-right: 40px; /* Add padding-right specifically for "All Stores" */
+    }
+
+    .hiddendropdown-content a:hover {
+        background-color: #1967D2;
+        color: white;
+    }
+
+    .hiddendropdown-content img {
+        margin-left: 8px;
+        border-radius: 4px;
+    }
+
+    .hiddendropdown:hover .hiddendropdown-content {
+        display: block;
+    }
+
+    .hiddendropdown:hover .hiddendropbtn {
+        background: rgb(211, 211, 211);
+    }
+      /* Media query for smaller screens */
+    @media (max-width: 600px) {
+        .hiddendropbtn {
+            width: 160px; /* Decrease the width */
+            padding-right: 15px; /* Decrease padding */
+            padding-left: 5px; /* Decrease padding */
+            font-size: 14px; /* Decrease font size */
+	    margin-left: -10px;
+        }
+
+        .hiddendropbtn::after {
+            border-left: 4px solid transparent; /* Decrease arrow size */
+            border-right: 4px solid transparent; /* Decrease arrow size */
+            border-top: 4px solid #384d55; /* Decrease arrow size */
+        }
+
+        .hiddendropdown-content {
+            min-width: 140px; /* Decrease min-width */
+        }
+
+        .hiddendropdown-content a {
+            padding: 8px 12px; /* Decrease padding */
+            font-size: 14px; /* Decrease font size */
+        }
+
+        .hiddendropdown-content a[data-value="all"] {
+            padding-right: 30px; /* Adjust padding-right specifically for "All Stores" */
+        }
+
+        .hiddendropdown-content img {
+            width: 16px; /* Decrease image width */
+            height: 16px; /* Decrease image height */
+        }
+    }
+	 .new-badge {
+    display: inline-block;
+    background:#53ce39;
+    color: #fff;
+    font-size: 11px !important;
+    font-weight: bold;
+    line-height: 1;
+    padding: 3px 7px;
+    border-radius: 10px;
+    margin-right: 4px;
+    position: relative;
+    top: -3px;
+    vertical-align: top;
+}
+ .menu2 ul li.masterdropdown {
+    line-height: 2.2;
+}
+</style>
+
+    <script>
+        $(function () {
+            var lang = '';
+            if (lang == 1) {
+                $('[class*=col-]').css('float', 'left');
+                $('.float-r').css('float', 'left'); //vieworder
+                $('.float-l').css('float', 'right'); //vieworder
+                $('.editbutton').css('float', 'right'); //altershipping                              
+            }
+            else {
+                $("[class^='col-']").css('float', 'right');
+                $('.float-r').css('float', 'right'); //vieworder
+                $('.float-l').css('float', 'left'); //vieworder                
+                $('.editbutton').css('float', 'left'); //altershipping                
+            }
+        });
+    </script>
+    <script>
+        var width = window.innerWidth;
+        if (width < 600) {
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "230px";
+                document.getElementById("mySidenav").style.height = "100%";
+                document.body.style.overflowX = "hidden";
+                document.getElementById("main").style.pointerEvents = "none";
+                document.getElementById("main").style.opacity = "0.5";
+                document.body.style.overflowY = "hidden";
+            }
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("mySidenav").style.height = "0";
+                document.getElementById("main").style.pointerEvents = "all";
+                document.getElementById("main").style.opacity = "1";
+                document.body.style.overflowX = "auto";
+                document.body.style.overflowY = "auto";
+            }
+        }
+        else {
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("mySidenav").style.height = "100%";
+                //document.getElementById("main").style.marginRight = "250px";
+                document.body.style.overflowX = "hidden";
+                //document.getElementById("main").style.backgroundColor =  "rgba(0,0,0,0.4)";
+                document.getElementById("main").style.pointerEvents = "none";
+                document.getElementById("main").style.opacity = "0.5";
+            }
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("mySidenav").style.height = "0";
+                document.getElementById("main").style.marginRight = "0";
+                document.getElementById("main").style.backgroundColor = "none";
+                document.getElementById("main").style.pointerEvents = "all";
+                document.getElementById("main").style.opacity = "1";
+                document.body.style.overflowX = "auto";
+            }
+        }
+    </script>
+    <script>
+        /*Scroll to top when arrow up clicked BEGIN*/
+        $(window).scroll(function () {
+            var height = $(window).scrollTop();
+            if (height > 1000) {
+                $('#back2Top').fadeIn();
+            } else {
+                $('#back2Top').fadeOut();
+            }
+        });
+        $(document).ready(function () {
+            $("#back2Top").click(function (event) {
+                event.preventDefault();
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                return false;
+            });
+        });
+ /*Scroll to top when arrow up clicked END*/
+    </script>
+    
+    
+    <meta charset="utf-8">
+    <script type="text/javascript" src="/js/lazysizes.min.js" async></script>
+    <link rel="stylesheet" type="text/css" href="/css/v-635947650604917161/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/v-637127859124005330/slick-theme.min.css" />
+    <script type="text/javascript" src="/Scripts/v-635844502750000000/slick.min.js"></script>
+    <link rel="stylesheet" href="/css/webpages/v-639137592144531778/index.min.css" type="text/css" media="screen" />
+    
+    
+    
+        
+    
+    <script>      
+        $(function () {
+            // Init the slick
+            settings = {
+                infinite: true,
+                speed: 300,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                rtl: true,
+                prevarrow: "http://neelwafurat.com/rotator/rotator_right.png?1576845155044",
+                nextarrow: "http://neelwafurat.com/rotator/rotator_left.png?1576845155044",
+                responsive: [
+                    {
+                        breakpoint: 2000,
+                        settings: {
+                            slidesToShow: 6,
+                            slidesToScroll: 6,
+                        }
+                    },
+                    {
+                        //breakpoint: 1024,
+                        breakpoint: 1216,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4,
+                        }
+                    },
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 4,
+                            dots: true,
+                            arrows: false
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            dots: true,
+                            arrows: false
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            dots: true,
+                            arrows: false
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            dots: true,
+                            arrows: false
+                        }
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            }
+            $(".randomp").slick(settings);
+        });
+    </script>
+</head>
+
+<body dir="rtl">
+    <form method="post" action="./" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZBe9HsxooNB-PJ7Mi9dKbZns4EsI3KMlEdUOkiVxSFgt3FDrnX08kzkLPOft9Qxu5g2&amp;t=639256505503738887" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LQcWqCrEheBAnk73TKORGMSDdXsiUBmQkylpQ5RHN_8IQu57-xjVGwkOFeAHNCBeKQ5eDKK8PqSAOyGlyTl2eWIEgnLolnxIHsxkU2upI9oT0&amp;t=27117261" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScIJpiyBt2A4zl3_KmE2mwBTKxFaMCsBswKkR2HVJIix80YUU9vEGhq3KdgxSOgDL3apgzjiVSTj1eq1l8BjAffhUOZ5_1kl30XMqN8YB6vUD0&amp;t=27117261" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="90059987" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+</div>
+        
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$scriptmanager1', 'aspnetForm', ['tctl00$mupdatepanel',''], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        <div>
+            <a id="back2Top" class="back2top" title="Back to top" href="#">
+                <img src="https://www.neelwafurat.com/graphics/arrowtop.png" width="100%" alt="" />
+            </a>
+        </div>
+        <div class="addtocartnotf" id="adtocartnotf">
+            <div>
+                <span>لقد تمت الاضافة بنجاح</span>
+            </div>
+            <a href="/cart.aspx"><span>تعديل  العربة</span></a>
+            <a href="ssl/orders.aspx"><span>إتمام عملية الشراء</span></a>
+        </div>
+        <!-- -------------------------------------------------- header -------------------------------------------------- -->
+        
+        
+        <!--Menu-->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            
+            
+             <div class="accordion"><span>كتب ورقية</span></div>
+            <div class="panel">           
+                <a href="/allsubjects.aspx?search=books"><span>المواضيع</span></a>
+                <a href="/newreleases.aspx?search=books"><span>صدر حديثاً</span></a>
+                <a href="/BBestSellers.aspx?search=books"><span>الأكثر مبيعاً</span></a>
+                <a href="/AwardBooks.aspx?search=books&i=3"><span>جوائز</span></a>
+                
+                <a href="/newreleases.aspx?search=books&country=0&ship=2"><span>شحن مخفض</span></a>
+                
+                <a href="/browseoffers.aspx?search=offers"><span>عروض خاصة</span></a>
+                
+                <a href="/allthemes.aspx"><span>صفحات مشوقة</span></a>
+		<a href="/bookhighlights.aspx?booktype=p">إختياراتنا</a>
+                
+                <a href="/specialized_publications.aspx?search=books"><span>كتب أكاديمية</span></a>
+                <a href="/soundouk.aspx?search=books"><span>صندوق القراءة</span></a>
+                <a href="/engallsubjects.aspx?search=books" id="ctl00_engbooks1"><span>English books</span></a>
+            </div>
+            <div class="accordion"><span>كتب الكترونية</span></div>
+            <div class="panel">
+                <a href="/locatebyformat.aspx?mode=1"><span>الصفحة الرئيسية</span></a>
+                <a href="/newreleases.aspx?search=ebooks"><span>صدر حديثاً</span></a>
+                <a href="/BBestSellers.aspx?search=ebooks"><span>الأكثر مبيعاً</span></a>
+                <a class="red" href="/locatebyformat.aspx?mode=1&freebook=true&orderby=rdate%20desc&page=1&query=%20%20%20(price%3D-1)"><span>كتب مجانية</span></a>
+		<a href="/bookhighlights.aspx?booktype=e">إختياراتنا</a>
+                <a href="/subscriptionsList.aspx?search=books&type=e&id=18"><span>iKitab بلا حدود</span></a>
+                <a href="/help/ikitab_faq.aspx"><span>أسئلة يتكرر طرحها</span></a>
+                <a href="https://play.google.com/store/apps/details?id=com.neelwafurat.iKitabAndroid" target="_blank"><span>تحميل iKitab على Android</span></a>
+                <a href="https://apps.apple.com/us/app/ikitab/id396403617?ls=1" target="_blank"><span>تحميل iKitab على Apple</span></a>
+            </div>
+             <div class="accordion"><span>كتب صوتية</span></div>
+            <div class="panel">
+                <a href="/locatebyformat.aspx?mode=2"><span>الصفحة الرئيسية</span></a>
+                <a href="/subscriptionsList.aspx?search=books&type=o&id=1"><span>masmu3 بلا حدود</span></a>
+                <a href="/help/masmu3_faq.aspx"><span>أسئلة يتكرر طرحها</span></a>
+                <a href="https://play.google.com/store/apps/details?id=com.neelwafurat.masmu3" target="_blank"><span>تحميل masmu3 على Android</span></a>
+                <a href="https://apps.apple.com/us/app/masmu3/id1562094495" target="_blank"><span>تحميل masmu3 على Apple</span></a>
+            </div>
+             
+            <div id="ctl00_kidssec2" class="accordion"><span>أطفال وناشئة</span></div>
+            <div class="panel">
+                <a href="/kidssection.aspx"><span>الصفحة الرئيسية</span></a>
+                <a href="/browse.aspx?ddmsubject=05&search=books"><span>المواضيع</span></a>
+                <a href="/BBestSellers.aspx?search=books&bs=kids"><span>الأكثر مبيعاً</span></a>
+		<a href="/bookhighlights.aspx?booktype=k">إختياراتنا</a>
+                <a href='/products.aspx?catcode=08'><span>وسائل تعليمية</span></a>
+                <a href="/soundouk.aspx?search=books"><span>صندوق القراءة</span></a>
+                <a href="/AwardBooks.aspx?childaward=True&search=books&i=4"><span>جوائز</span></a>
+            </div>
+            <a href='/products.aspx?catcode=08'><span>وسائل تعليمية</span></a>
+	    
+             <div id="ctl00_healthcare" class="accordion"><span>الصحة والعناية الشخصية</span><span class="new-badge">جديد</span></div>
+            <div class="panel">
+                <a href="/products2.aspx?catcode=20"><span>الكل</span></a>
+                <a href="/products2.aspx?catcode=20&subcat=01"><span>أجهزة العناية الشخصية</span></a>
+                <a href="/products2.aspx?catcode=20&subcat=02"><span>العناية وتصفيف الشعر</span></a>
+                <a href="/products2.aspx?catcode=20&subcat=03"><span>العناية بالجسم</span></a>
+                <a href="/products2.aspx?catcode=20&subcat=04"><span>العناية بالأسنان</span></a>
+                <a href="/products2.aspx?catcode=20&subcat=05"><span>الحمية والتغذية</span></a>
+            </div>
+           
+             <div id="ctl00_kitchen" class="accordion"><span>المطبخ والسفرة</span><span class="new-badge">جديد</span></div>
+            <div class="panel">
+                <a href="/products2.aspx?catcode=21"><span>الكل</span></a>
+                <a href="/products2.aspx?catcode=21&subcat=01"><span>أواني الطهي</span></a>
+                <a href="/products2.aspx?catcode=21&subcat=02"><span>أدوات الخبز</span></a>
+                <a href="/products2.aspx?catcode=21&subcat=03"><span>أدوات المائدة</span></a>
+                <a href="/products2.aspx?catcode=21&subcat=04"><span>الأوعية والتخزين</span></a>
+                <a href="/products2.aspx?catcode=21&subcat=05"><span>أدوات المطبخ</span></a>
+            </div>
+            <div class="accordion"><span>متجر الهدايا</span></div>
+            <div class="panel">
+                <a href="/products.aspx?catcode=00"><span>أقسام</span></a>
+                <a href="/hcBestSellers.aspx"><span>الأكثر مبيعاً</span></a>
+                
+                
+                <a href="https://www.neelwafurat.com/theme.aspx?file=backtoschool" class="red"><span>العودة للمدارس</span></a>
+                <a href="/products.aspx?catcode=09"><span>اكسسوارات كتب</span></a>
+                <a href="/products.aspx?catcode=05"><span>اكسسوارات منزلية</span></a>
+                <a href="/products.aspx?catcode=10"><span>اكسسوارات</span></a>
+                <a href="/products.aspx?catcode=07"><span>ملابس</span></a>
+                <a href="/products.aspx?catcode=01"><span>مطرزات</span></a>
+                <a href="/products.aspx?catcode=02"><span>حقائب</span></a>
+                <a href="/products.aspx?catcode=03"><span>حلي</span></a>
+                <a href="/products.aspx?catcode=11"><span>عناية بالذات</span></a>
+                
+                <a href="/products.aspx?catcode=14"><span>صابون</span></a>
+                
+                <a href="/products.aspx?catcode=04"><span>أطفال</span></a>
+                <a href="/products.aspx?catcode=12"><span>مناسبات</span></a>    
+            </div>
+             <div id="ctl00_free2" class="accordion red" style="display:none;"><span>شحن مجاني</span></div>
+            <div class="panel">
+                <a href="/newreleases.aspx?search=books&country=0&ship=1" id="ctl00_free5"><span>صدر حديثاً</span></a>
+                <a href="/boffers.aspx?type=ldfs" id="ctl00_free6"><span>آخر فرصة</span></a>
+                <a href="/bazar.aspx?search=books&t=free" id="ctl00_free7" style="display:none;">بنود مختارة</a>
+                
+                
+                <a id="ctl00_free8"></a>
+            </div>
+            <div class="accordion"><span>اشتراكات</span></div>
+            <div class="panel">
+                <a href="/subscriptions.aspx?search=books"><span>كل الاشتراكات</span></a>
+                <a href="/soundouk.aspx?search=books"><span>صندوق القراءة</span></a>
+                <a href="/subscriptionsList.aspx?search=books&type=e&id=18"><span>iKitab بلا حدود</span></a>
+            </div>
+            <a href="/advsearch.aspx?search=books"><span>بحث متقدم</span></a>
+            <hr />
+            <div class="accordion"><span>نيل وفرات</span></div>
+            <div class="panel">
+                <a href="/about.aspx?search=books"><span>عن الشركة</span></a>
+                <a href="/prequirements.aspx"><span>سياسة الشركة </span></a>
+                <a href="/videos.aspx"><span>فيديوهات</span></a>
+                <a href="/help/help.aspx?search=books"><span>أسئلة يتكرر طرحها</span></a>
+                <a href="/facilities.aspx?search=books"><span>خدمات نيل وفرات</span></a>
+                <a href="/publishers.aspx"><span>انشر كتابك</span></a>
+                <a href="/help/contactus/contactus.aspx?search=books"><span>تواصل معنا</span></a>
+            </div>
+            <a href="https://www.neelwafurat.com/ssl/tracking/signin.aspx"><span>حسابك</span></a>
+            <a href="/wishlist.aspx"><span>لائحة الأمنيات</span></a>
+            <a href="/cart.aspx"><span>عربة التسوق</span></a>
+            <a href="https://www.neelwafurat.com/ssl/newsletters/newsletter_checkin.aspx"><span>نشرة الإصدارات</span></a>
+        </div>
+        <!-- End of Menu-->
+        <div class="row" id="main">
+            <!--id="justforbackgroundColor"-->
+            <div class="row user-header">
+                
+                
+                <div class="logindropdown logininfo">
+                    <a id="ctl00_LoginStatus1" href="javascript:__doPostBack(&#39;ctl00$LoginStatus1$ctl02&#39;,&#39;&#39;)">تسجيل دخول</a>
+                    
+                    
+                </div>	
+<select name="ctl00$ddlLanguages" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ddlLanguages\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ddlLanguages" style="border-radius: 8px; background: rgb(239 239 239); color: #384d55;">
+	<option selected="selected" value="ar">AR</option>
+	<option value="en-us">EN</option>
+
+</select>
+                <div class="float-l">
+                    
+                      <select name="ctl00$webcountries" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$webcountries\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_webcountries" style="border-radius: 8px; background: rgb(239 239 239); color: #384d55; display: none">
+	<option selected="selected" value="all">كل المتاجر</option>
+	<option value="ae">متجر الإمارات</option>
+	<option value="eg">متجر مصر</option>
+	<option value="lb">متجر لبنان</option>
+	<option value="sa">متجر السعودية</option>
+
+</select>
+               <div class="hiddendropdown">
+                <button class="hiddendropbtn" disabled>
+                    <img src="" width="20" height="15" class="selected-img">
+                    <span class="selected-text">كل المتاجر</span>
+                </button>
+                <div class="hiddendropdown-content">
+                    <a href="#" data-value="all">
+                        <span>كل المتاجر</span>
+                    </a>
+                    <a href="#" data-value="ae">
+                        <img src="https://neelwafurat.com/images/flags/uae1_new.png" width="20" height="15"> <span>متجر الإمارات</span>
+                    </a>
+                    <a href="#" data-value="eg">
+                        <img src="https://neelwafurat.com/images/flags/egypt1.png" width="20" height="15"> <span>متجر مصر</span>
+                    </a>
+                    <a href="#" data-value="lb">
+                        <img src="https://neelwafurat.com/images/flags/lebanon1.png" width="20" height="15"> <span>متجر لبنان</span>
+                    </a>
+		    <a href="#" data-value="sa">
+                        <img src="https://neelwafurat.com/images/flags/saudi1.png" width="20" height="15"> <span>متجر السعودية</span>
+                    </a>
+                </div>
+            </div>
+
+                    <a href="https://www.neelwafurat.com/wishlist.aspx" class="wishlist">
+                        <img src="https://www.neelwafurat.com/graphics/mastertest/fheart.png" />
+                    </a>
+                    <a href="https://www.neelwafurat.com/cart.aspx" class="cart">
+                        <img src="https://www.neelwafurat.com/cart33.png" />
+                    </a>
+                    <a href="https://www.neelwafurat.com/cart.aspx">
+                        <div id="ctl00_mupdatepanel" style="display: contents">
+	
+                                <span id="ctl00_countitems" style="background: #A6CE39; padding: 0px 8px; border-radius: 50px; font-weight: bold; font-size: 12px!important; margin-left: 7px; margin-right: -7px; color: white;">2</span>
+                            
+</div>
+                    </a>
+                </div>
+            </div>
+            <div class="row header">
+                <div class="three">
+                    <div onclick="openNav()" class="float-r navbar">
+                        
+                        <div class="menuicon"></div>
+                        <div class="menuicon"></div>
+                        <div class="menuicon"></div>
+                    </div>
+                </div>
+                <div class="nwflogo one">
+                    <a href="https://www.neelwafurat.com/">
+                        <img id="logo" alt="nwf.com logo" src="https://www.neelwafurat.com/graphics/common/NWF_logo.png" />
+                    </a>
+                </div>
+                <div class="row searchbar two">
+                    
+<link href="/css/jquery-ui.min.css" rel="stylesheet" />
+<link href="/css/v-637641207954780907/ui-autocomplete.min.css" rel="stylesheet" />
+<link href="/css/controls/v-637598701276536480/search.min.css" rel="stylesheet" />
+<script type="text/javascript" src="/Scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/Scripts/v-638427402078224399/ui-autocomplete.min.js"></script>
+<script type="text/javascript" src="https://api.yamli.com/js/yamli_api.js"></script>
+<style type="text/css">
+    /* the real select must be free to take the width we measure */
+    .ddlSearchCategory {
+        max-width: none !important;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: clip;
+    }
+    /* hidden mirror used only for measuring: must still lay out, so no display:none */
+    #width_tmp_select {
+        position: absolute !important;
+        visibility: hidden !important;
+        white-space: nowrap;
+        max-width: none !important;
+        width: auto !important;
+        top: 0;
+        left: -9999px;
+    }
+</style>
+<script type="text/javascript">
+    // px of slack for the native dropdown arrow (chunkier on mobile)
+    var DDL_ARROW_SLACK = 24;
+    // viewport width at or below which we swap in the short labels
+    var DDL_MOBILE_MAX = 640;
+    // captured once on first run: value -> { full: '...', short: '...' }
+    var DDL_LABELS = {};
+
+    function changeddwidth() {
+        var $ddl = $('#ctl00_search1_ddlSearchCategory');
+        var $tmp = $("#width_tmp_select");
+        if (!$ddl.length || !$tmp.length) { return; }
+
+        // capture the server-rendered (full) labels once, then define short forms
+        // for the two that don't fit a phone header. Only the TEXT changes --
+        // option values stay 'healthcare' / 'kitchen', so btnSearch_Click is unaffected.
+        if ($.isEmptyObject(DDL_LABELS)) {
+            $ddl.find('option').each(function () {
+                DDL_LABELS[this.value] = { full: $(this).text() };
+            });
+            if (DDL_LABELS['healthcare']) { DDL_LABELS['healthcare'].short = 'العناية الشخصية'; }
+            if (DDL_LABELS['kitchen'])    { DDL_LABELS['kitchen'].short    = 'المطبخ'; }
+        }
+
+        var mobile = $(window).width() <= DDL_MOBILE_MAX;
+        $ddl.find('option').each(function () {
+            var m = DDL_LABELS[this.value];
+            if (!m) { return; }
+            $(this).text(mobile && m.short ? m.short : m.full);
+        });
+
+        // mirror must render with the SAME typography as the real select,
+        // otherwise it measures short (mobile browsers restyle form controls)
+        $tmp.css({
+            fontFamily: $ddl.css('font-family'),
+            fontSize: $ddl.css('font-size'),
+            fontWeight: $ddl.css('font-weight'),
+            letterSpacing: $ddl.css('letter-spacing'),
+            padding: 0
+        });
+
+        $("#width_tmp_option").text($ddl.find('option:selected').text());
+        $ddl.width($tmp.width() + DDL_ARROW_SLACK);
+
+        var $box = $('.searchTextBox'),
+            $btn = $('.buttonSearch'),
+            avail = $ddl.parent().width() - $ddl.outerWidth(true) - $btn.outerWidth(true) - 4;
+        if (avail > 40) { $box.outerWidth(avail); }
+    }
+
+    $(document).ready(function () {
+        $('#ctl00_search1_ddlSearchCategory').change(changeddwidth);
+        changeddwidth();   // size correctly on initial load / after search redirect
+
+        // re-run on rotate / resize so labels swap when crossing the breakpoint
+        var ddlResizeTimer = null;
+        $(window).on('resize orientationchange', function () {
+            clearTimeout(ddlResizeTimer);
+            ddlResizeTimer = setTimeout(changeddwidth, 150);
+        });
+    });
+</script>
+<script type="text/javascript"> 
+    function handleMissingImg(ele) {
+        ele.onerror = null;
+        ele.src = 'https://www.neelwafurat.com/images/nopic.gif';
+    }
+    // on search submit check if user provided input if not return false which will stop the search action
+    function checktext() {
+        $(".searchTextBox").autocomplete("option", "disabled", true);
+        if (document.getElementById("ctl00_search1_txtSearch").value == "") {
+            document.getElementById("ctl00_search1_txtSearch").focus();
+            document.getElementById("ctl00_search1_txtSearch").style.borderColor = "red";
+            document.getElementById("ctl00_search1_btnSearch").style.borderColor = "red";
+            return false;
+        }
+        return true;
+    }
+    /******************* autocomplete code starts here *******************/
+    // get search category
+    function getSearchCategory() {
+        var dropdown = document.getElementById("ctl00_search1_ddlSearchCategory");
+        var selected = dropdown.options[dropdown.selectedIndex].value;
+        return selected;
+    }
+    function forceSearchOnAutocompleteSelection(selection, idautosub) {
+        // $("ctl00_search1_txtSearch").val(selection);
+        // $('ctl00_search1_txtSearch').attr("value", selection);
+        document.getElementById('ctl00_search1_txtSearch').value = selection;
+        document.getElementById('ctl00_search1_txtidautosub').value = idautosub;
+        document.getElementById('ctl00_search1_btnsugg').click();
+    }
+    /* bind autocomplete when document is ready */
+    $(function () {
+	autocomplete('ctl00_search1_txtSearch', 'MR','all');
+    });
+
+    /******************* autocomplete code ends here *******************/
+</script>
+
+<select name="ctl00$search1$ddlSearchCategory" id="ctl00_search1_ddlSearchCategory" class="ddlSearchCategory">
+	<option value="books">كتب</option>
+	<option value="ikitab">iKitab</option>
+	<option value="educational">وسائل تعليمية</option>
+	<option value="giftshop">متجر الهدايا</option>
+	<option value="kitchen">المطبخ والسفرة</option>
+	<option value="healthcare">الصحة والعناية الشخصية</option>
+
+</select>
+<select id="width_tmp_select">
+    <option id="width_tmp_option"></option>
+</select>
+<span class="ui-front" style="position: relative; font-size: 0!important">
+    <input name="ctl00$search1$txtSearch" type="text" id="ctl00_search1_txtSearch" class="searchTextBox" onkeydown="if(event.which || event.keyCode){if ((event.which == 13) || (event.keyCode == 13)) {document.getElementById(&#39;ctl00_search1_btnSearch&#39;).click();return false;}} else {return true}; " placeholder="بحث في عنوان أو مؤلف. . ." />
+    
+    <span>
+        <input type="image" name="ctl00$search1$btnSearch" id="ctl00_search1_btnSearch" class="buttonSearch" src="https://www.neelwafurat.com/graphics/common/search.png" onclick="return checktext();" />
+    </span>
+    <input type="hidden" name="ctl00$search1$txtidautosub" id="ctl00_search1_txtidautosub" />
+    <input type="submit" name="ctl00$search1$btnsugg" value="" id="ctl00_search1_btnsugg" style="display: none" />
+</span>
+                    
+                    <a href="/advsearch.aspx?search=books" class="advsearchbtn"><span>بحث متقدم</span></a>
+                </div>
+                <div id="ctl00_headerall" class="menu2 four">
+                    <ul>
+                        <li class="masterdropdown masterdropdownarrow">
+                            <a><span>نيل وفرات</span></a>
+                            <div class="dropdown-content">
+                                <a href="/about.aspx?search=books"><span>عن الشركة</span></a>
+                                <a href="/prequirements.aspx"><span>سياسة الشركة </span></a>
+                                <a href="/videos.aspx"><span>فيديوهات</span></a>
+                                <a href="/help/help.aspx?search=books"><span>أسئلة يتكرر طرحها</span></a>
+                                <a href="/facilities.aspx?search=books"><span>خدمات نيل وفرات</span></a>
+                                <a href="/publishers.aspx"><span>انشر كتابك</span></a>
+                                <a href="https://www.neelwafurat.com/ssl/tracking/signin.aspx"><span>حسابك</span></a>
+                                <a href="/help/contactus/contactus.aspx?search=books"><span>تواصل معنا</span></a>
+                            </div>
+                        </li>
+                        <li class="masterdropdown masterdropdownarrow">
+                            <a><span>كتب ورقية</span></a>
+                            <div class="dropdown-content">
+                                <div class="col-md-6">
+                                    <a href="/allsubjects.aspx?search=books"><span>المواضيع</span></a>
+                                    <a href="/BBestSellers.aspx?search=books"><span>الأكثر مبيعاً</span></a>
+                                    <a href="/allthemes.aspx"><span>صفحات مشوقة</span></a>
+                                    <a href="/browseoffers.aspx?search=offers"><span>عروض خاصة</span></a>
+                                    
+                                    <a href="/soundouk.aspx?search=books"><span>صندوق القراءة</span></a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="/newreleases.aspx?search=books"><span>صدر حديثاً</span></a>
+				    <a href="/bookhighlights.aspx?booktype=p">إختياراتنا</a>
+                                    <a href="/AwardBooks.aspx?search=books&i=3"><span>جوائز</span></a>
+                                    <a href="/newreleases.aspx?search=books&country=0&ship=2"><span>شحن مخفض</span></a>
+                                    <a href="/specialized_publications.aspx?search=books"><span>كتب أكاديمية</span></a>
+                                    <a href="/engallsubjects.aspx?search=books" id="ctl00_engbooks3"><span>English books</span></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="masterdropdown masterdropdownarrow">
+                            <a><span>كتب الكترونية</span></a>
+                            <div class="dropdown-content">
+                                <a href="/locatebyformat.aspx?mode=1"><span>الصفحة الرئيسية</span></a>
+                                <a href="/newreleases.aspx?search=ebooks"><span>صدر حديثاً</span></a>
+                                <a href="/BBestSellers.aspx?search=ebooks"><span>الأكثر مبيعاً</span></a>
+                                <a style="color: red" href="/locatebyformat.aspx?mode=1&freebook=true&orderby=rdate%20desc&page=1&query=%20%20%20(price%3D-1)"><span>كتب مجانية</span></a>
+				<a href="/bookhighlights.aspx?booktype=e">إختياراتنا</a>
+                                <a href="/subscriptionsList.aspx?search=books&type=e&id=18"><span>iKitab بلا حدود</span></a>
+                                <a href="/help/ikitab_faq.aspx"><span>أسئلة يتكرر طرحها</span></a>
+                                <a href="https://play.google.com/store/apps/details?id=com.neelwafurat.iKitabAndroid" target="_blank"><span>تحميل iKitab على Android</span></a>
+                                <a href="https://apps.apple.com/us/app/ikitab/id396403617?ls=1" target="_blank"><span>تحميل iKitab على Apple</span></a>
+                            </div>
+                        </li>
+                        <li class="masterdropdown masterdropdownarrow">
+                            <a><span>كتب صوتية</span></a>
+                            <div class="dropdown-content">
+                                <a href="/locatebyformat.aspx?mode=2"><span>الصفحة الرئيسية</span></a>
+                                <a href="/subscriptionsList.aspx?search=books&type=o&id=1"><span>masmu3 بلا حدود</span></a>
+                                <a href="/help/masmu3_faq.aspx"><span>أسئلة يتكرر طرحها</span></a>
+                                <a href="https://play.google.com/store/apps/details?id=com.neelwafurat.masmu3" target="_blank"><span>تحميل masmu3 على Android</span></a>
+                                <a href="https://apps.apple.com/us/app/masmu3/id1562094495" target="_blank"><span>تحميل masmu3 على Apple</span></a>
+                            </div>
+                        </li>
+                        <li id="ctl00_kidssec1" class="masterdropdown masterdropdownarrow">
+                            <a><span>أطفال وناشئة</span></a>
+                            <div class="dropdown-content">
+                                <a href="/kidssection.aspx"><span>الصفحة الرئيسية</span></a>
+                                <a href="/browse.aspx?ddmsubject=05&search=books"><span>المواضيع</span></a>
+                                <a href="/BBestSellers.aspx?search=books&bs=kids"><span>الأكثر مبيعاً</span></a>
+				<a href="/bookhighlights.aspx?booktype=k">إختياراتنا</a>
+                                <a href="/AwardBooks.aspx?childaward=True&search=books&i=4"><span>جوائز</span></a>
+                                <a href='/products.aspx?catcode=08'><span>وسائل تعليمية</span></a>
+                                <a href="/soundouk.aspx?search=books"><span>صندوق القراءة</span></a>
+                            </div>
+                        </li>
+                        <li class="masterdropdown masterdropdownarrow">
+                            <a><span>متجر الهدايا</span></a>
+                            <div class="dropdown-content">
+                                <div class="col-md-6">
+                                    <a href="/products.aspx?catcode=00"><span>أقسام</span></a>
+  				                    <a href="/hcBestSellers.aspx"><span>الأكثر مبيعاً</span></a>
+                                    <a href="/products.aspx?catcode=07"><span>ملابس</span></a>
+                                    <a href="/products.aspx?catcode=02"><span>حقائب</span></a>
+                                    <a href="/products.aspx?catcode=05"><span>اكسسوارات منزلية</span></a>
+                                    <a href="/products.aspx?catcode=10"><span>اكسسوارات</span></a>                                   
+                                </div>
+                                <div class="col-md-6">
+                                    
+                                    
+                                    <a href="https://www.neelwafurat.com/theme.aspx?file=backtoschool" class="red"><span>العودة للمدارس</span></a>
+                                    <a href="/products.aspx?catcode=01"><span>مطرزات</span></a>
+                                    <a href="/products.aspx?catcode=03"><span>حلي</span></a>
+                                    <a href="/products.aspx?catcode=09"><span>اكسسوارات كتب</span></a>
+                                    <a href="/products.aspx?catcode=11"><span>عناية بالذات</span></a>
+                                    <a href="/products.aspx?catcode=14"><span>صابون</span></a>
+                                    <a href="/products.aspx?catcode=04"><span>أطفال</span></a>			
+			                        <a href="/products.aspx?catcode=12"><span>مناسبات</span></a>
+
+                                </div>
+                            </div>
+                        </li>
+			<li class="masterdropdown">
+                            <a href="/products.aspx?catcode=08"><span>وسائل تعليمية</span></a>
+                        </li>
+                        <li id="ctl00_free4" class="masterdropdown masterdropdownarrow red" style="display:none;">
+                            <a><span>شحن مجاني</span></a>
+                            <div class="dropdown-content">
+                                <a href="/newreleases.aspx?search=books&country=0&ship=1" id="ctl00_free9"><span>صدر حديثاً</span></a>
+                                <a href="/boffers.aspx?type=ldfs" id="ctl00_free10"><span>آخر فرصة</span></a>
+                                <a href="/bazar.aspx?search=books&t=free" id="ctl00_free11" style="display:none;">بنود مختارة</a>
+                                
+                                
+                                <a id="ctl00_free13"></a>
+                            </div>
+                        </li>
+                        <li class="masterdropdown">
+                            <a href="/subscriptions.aspx?search=books"><span>اشتراكات</span></a>
+                        </li>
+                        
+                        
+		 	
+                        <li id="ctl00_lihealthcare" class="masterdropdown masterdropdownarrow">
+                            <a><span>الصحة والعناية الشخصية</span></a><span class="new-badge">جديد</span>
+                            <div class="dropdown-content">
+                                <a href="/products2.aspx?catcode=20"><span>الكل</span></a>
+                                <a href="/products2.aspx?catcode=20&subcat=01"><span>أجهزة العناية الشخصية</span></a>
+                                <a href="/products2.aspx?catcode=20&subcat=02"><span>العناية وتصفيف الشعر</span></a>
+                                <a href="/products2.aspx?catcode=20&subcat=03"><span>العناية بالجسم</span></a>
+                                <a href="/products2.aspx?catcode=20&subcat=04"><span>العناية بالأسنان</span></a>
+                                <a href="/products2.aspx?catcode=20&subcat=05"><span>الحمية والتغذية</span></a>
+                            </div>
+                        </li>
+                        
+                        <li id="ctl00_likitchen" class="masterdropdown masterdropdownarrow">
+                            <a><span>المطبخ والسفرة</span></a><span class="new-badge">جديد</span>
+                            <div class="dropdown-content">
+                                <a href="/products2.aspx?catcode=21"><span>الكل</span></a>
+                                <a href="/products2.aspx?catcode=21&subcat=01"><span>أواني الطهي</span></a>
+                                <a href="/products2.aspx?catcode=21&subcat=02"><span>أدوات الخبز</span></a>
+                                <a href="/products2.aspx?catcode=21&subcat=03"><span>أدوات المائدة</span></a>
+                                <a href="/products2.aspx?catcode=21&subcat=04"><span>الأوعية والتخزين</span></a>
+                                <a href="/products2.aspx?catcode=21&subcat=05"><span>أدوات المطبخ</span></a>
+                            </div>
+                        </li>
+			  <li class="masterdropdown">
+                             <a href="https://www.neelwafurat.com/publishers.aspx"><span>انشر كتابك</span></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <!-- -------------------------------------------------- Endo of header -------------------------------------------------- -->
+            <!-- -------------------------------------------------- body --------------------------------------------------  -->
+            <div id="ctl00_content" class="row content" dir="rtl">
+                
+    <div class="row">
+        <div id="ctl00_ContentPlaceHolder1_slider" class="bigslider"><div><a href='https://www.neelwafurat.com/itempage.aspx?id=lbb444117-447551&amp;search=books'><img src='https://www.neelwafurat.com/graphics/indexImgs/walid-junblatt-nwf.jpeg' class='img-slider'></img></a></div><div><a href='https://www.neelwafurat.com/'><img src='https://www.neelwafurat.com/graphics/indexImgs/saudi-lebanon-shipping-books.jpg' class='img-slider'></img></a></div><div><a href='https://www.neelwafurat.com/AwardBooks.aspx?search=books&amp;i=3'><img src='https://www.neelwafurat.com/graphics/indexImgs/booker-nwf.com.jpg' class='img-slider'></img></a></div><div><a href='https://www.neelwafurat.com/AwardBooks.aspx?search=books&amp;i=3'><img src='https://www.neelwafurat.com/graphics/indexImgs/booker-nwf.com.jpg' class='img-slider'></img></a></div></div>
+    </div>
+    <div class="index-content">
+        <div class="row rotator-box">
+            <div class="row rotator-box-header">
+                <span id="ctl00_ContentPlaceHolder1_Label1">كتب ورقية في الأضواء</span>
+                
+            </div>
+ 
+            
+                    <div class="col-12 randomp">
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb440071-443370&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/440/440071.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                            
+                        </div>
+                        <div class="author">
+                            حامد عبد الصمد
+                        </div>
+                        
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb440359-446760&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/440/440359.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                            
+                        </div>
+                        <div class="author">
+                            شكري القوتلي
+                        </div>
+                        
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb443016-446333&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/443/443016.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                            
+                        </div>
+                        <div class="author">
+                            حبيب عبدالرب سروري
+                        </div>
+                        
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb443376-446726&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/443/443376.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                            
+                        </div>
+                        <div class="author">
+                            فوز الفارس
+                        </div>
+                        
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=egb320881-5342070&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/eg/abookstore/covers/normal/320/320881.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                            
+                        </div>
+                        <div class="author">
+                            ريشارد دافيد بريشت
+                        </div>
+                        
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb443222-446569&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/443/443222.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                            
+                        </div>
+                        <div class="author">
+                            فاليري بيران
+                        </div>
+                        
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb439429-442692&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/439/439429.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                            
+                        </div>
+                        <div class="author">
+                            نجد الحوراني
+                        </div>
+                        
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb413405-412908&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/413/413405.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                            
+                        </div>
+                        <div class="author">
+                            سعيد خطيبي
+                        </div>
+                        
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb436798-439990&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/436/436798.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                            
+                        </div>
+                        <div class="author">
+                            محمود عيسى
+                        </div>
+                        
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb423634-424499&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/423/423634.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                            
+                        </div>
+                        <div class="author">
+                            أس.ك.علي
+                        </div>
+                        
+                    </div>
+                
+                    </div>
+                
+        </div>
+ <div class="row rotator-box" style="background: none!important">
+            <div class="row rotator-box-header">
+                <span id="ctl00_ContentPlaceHolder1_Label5">وسائل تعليمية</span>
+                <a href='/products.aspx?catcode=08'><span style="opacity: 0.8; font-size: 12px !important;color: #384d55;">مشاهدة المزيد »</span></a>
+            </div>
+            
+                    <div class="col-12 randomp">
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12130-19671&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/19/19671.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12411-20002&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/20/20002.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12412-20003&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/20/20003.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12426-20017&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/20/20017.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh9947-17248&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/17/17248.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12442-20037&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/20/20036.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12443-20038&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/20/20038.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12452-20052&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/20/20052.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12446-20041&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/20/20041.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12451-20051&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/20/20051.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                    </div>
+                
+                    </div>
+                
+            
+        </div>
+	<div class="row rotator-box" style="background: none!important">
+            <div class="row rotator-box-header">
+                <span id="ctl00_ContentPlaceHolder1_catbooks">مواضيع في الأضواء</span>
+                <a href='/allsubjects.aspx?&search=books'><span style="opacity: 0.8; font-size: 12px !important;color: #384d55;">مشاهدة المزيد »</span></a>
+            </div>
+            <div class="row">
+                <div class="categories"> 
+                     <div>
+                        <a href='/browse1.aspx?ddmsubject=10&subcat=01&search=books'>
+                            <img src='https://www.neelwafurat.com/graphics/mastertest/novels.jpg' />
+                        </a>
+                        <a href='/browse1.aspx?ddmsubject=10&subcat=01&search=books'><span>روايات</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href='/browse.aspx?ddmsubject=16&search=books'>
+                            <img src='https://www.neelwafurat.com/graphics/mastertest/religions.jpg' />
+                        </a>
+                        <a href='/browse.aspx?ddmsubject=16&search=books'><span>دين</span>
+                        </a>
+                    </div>
+                     <div>
+                        <a href='/browse.aspx?ddmsubject=08&search=books'>
+                            <img src='https://www.neelwafurat.com/graphics/mastertest/08.jpg' />
+                        </a>
+                        <a href='/browse.aspx?ddmsubject=08&search=books'><span>تاريخ وجغرافيا</span>
+                        </a>
+                    </div>  
+                    <div>
+                        <a href='/browse.aspx?ddmsubject=10&search=books'>
+                            <img src='https://www.neelwafurat.com/graphics/mastertest/literature.jpg' />
+                        </a>
+                        <a href='/browse.aspx?ddmsubject=10&search=books'><span>أدب</span>
+                        </a>
+                    </div>    
+                      <div>
+                        <a href='/browse.aspx?ddmsubject=20&search=books'>
+                            <img src='https://www.neelwafurat.com/graphics/mastertest/20.jpg' />
+                        </a>
+                        <a href='/browse.aspx?ddmsubject=20&search=books'><span>فلسفة</span>
+                        </a>
+                    </div>    
+                    <div>
+                        <a href='/browse.aspx?ddmsubject=05&search=books'>
+                            <img src='https://www.neelwafurat.com/graphics/mastertest/kids2.jpg' />
+                        </a>
+                        <a href='/browse.aspx?ddmsubject=05&search=books'><span>أطفال وناشئة</span>
+                        </a>
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <div class="row rotator-box">
+            <div class="row rotator-box-header">
+                <span id="ctl00_ContentPlaceHolder1_Label4">كتب الكترونية في الأضواء</span>
+                <a href='/locatebyformat.aspx?mode=1'><span style="opacity: 0.8; font-size: 12px !important;color: #384d55;">مشاهدة المزيد »</span></a>
+            </div>
+            
+                    <div class="col-12 randomp">
+                
+                    <div class='gridview-random'>
+                        
+                        <div class="imggrid" style="margin-top: 5px;">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb231627-213864&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/231/231627.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            مليكة عبد الحميد
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        
+                        <div class="imggrid" style="margin-top: 5px;">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb241717-223417&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/241/241717.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            أندرو لين
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        
+                        <div class="imggrid" style="margin-top: 5px;">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb241803-223424&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/241/241803.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            محمد عبد القادر
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        
+                        <div class="imggrid" style="margin-top: 5px;">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb358327-363147&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/358/358327.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            حسن كريم عاتي
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        
+                        <div class="imggrid" style="margin-top: 5px;">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=egb267203-5284330&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/eg/abookstore/covers/normal/267/267203.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            ناصر عراق
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        
+                        <div class="imggrid" style="margin-top: 5px;">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb346573-363132&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/346/346573.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            جلال برجس
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        
+                        <div class="imggrid" style="margin-top: 5px;">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb298547-291193&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/298/298547.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            حسين البار
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        
+                        <div class="imggrid" style="margin-top: 5px;">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb312107-303133&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/312/312107.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            عمر الحمادي
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        
+                        <div class="imggrid" style="margin-top: 5px;">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb246507-341543&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/246/246507.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            سعيد ناشيد
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        
+                        <div class="imggrid" style="margin-top: 5px;">
+                            <a href="https://www.neelwafurat.com/itempage.aspx?id=lbb323154-341518&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/323/323154.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            شارلوت برونتي
+                        </div>
+                    </div>
+                
+                    </div>
+                
+            
+        </div>
+        <div id="ctl00_ContentPlaceHolder1_divKidsSection" class="row rotator-box">
+            <div class="row rotator-box-header">
+                <span id="ctl00_ContentPlaceHolder1_Label6">أطفال وناشئة</span>
+                <a href='/kidssection.aspx'><span style="opacity: 0.8; font-size: 12px !important;color: #384d55;">مشاهدة المزيد »</span></a>
+            </div>
+            
+                    <div class="col-12 randomp">
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="http://www.neelwafurat.com/itempage.aspx?id=lbb397040-395107&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/397/397040.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            باسم يوسف
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="http://www.neelwafurat.com/itempage.aspx?id=lbb247671-228923&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/247/247671.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            وليد قصاب
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="http://www.neelwafurat.com/itempage.aspx?id=lbb389101-386375&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/389/389101.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            Tony Ross
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="http://www.neelwafurat.com/itempage.aspx?id=lbb390757-388145&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/390/390757.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            عماد وعلي
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="http://www.neelwafurat.com/itempage.aspx?id=lbb385842-383015&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/385/385842.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            أوزجي بهار سونار
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="http://www.neelwafurat.com/itempage.aspx?id=lbb377305-373986&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/377/377305.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            نادين باحص
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="http://www.neelwafurat.com/itempage.aspx?id=lbb393828-391521&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/lb/abookstore/covers/normal/393/393828.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="http://www.neelwafurat.com/itempage.aspx?id=egb270483-5287869&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/eg/abookstore/covers/normal/270/270483.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            سالي خالد ذكي
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="http://www.neelwafurat.com/itempage.aspx?id=egb251286-5266476&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/eg/abookstore/covers/normal/251/251286.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            محمد خليل الكسيح
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="http://www.neelwafurat.com/itempage.aspx?id=egb275633-5293514&search=books">
+                                <img data-src="https://www.neelwafurat.com/images/eg/abookstore/covers/normal/275/275633.jpg" width="100%" height="auto" align="middle" class="lazyload"/>
+                            </a>
+                        </div>
+                        <div class="author">
+                            منال سري
+                        </div>
+                    </div>
+                
+                    </div>
+                
+            
+        </div>
+        <div class="row rotator-box" style="background: none!important">
+            <div class="row rotator-box-header">
+                <span id="ctl00_ContentPlaceHolder1_Label2">اشتراكات</span>
+            </div>
+            <div class="row subsc">
+                <div class="col-md-6">
+                    <a href="/subscriptionsList.aspx?search=books&type=e&id=18">
+                        <img data-src="https://www.neelwafurat.com/graphics/indexImgs/bilahodoud.png" class="lazyload">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="/soundouk.aspx?search=books">
+                        <img data-src="https://www.neelwafurat.com/graphics/indexImgs/soundouk2.jpg" class="lazyload">
+                    </a>
+                </div>
+            </div>
+        </div>
+       
+<div class="row rotator-box" style="background: none!important">
+            <div class="row rotator-box-header">
+                <span id="ctl00_ContentPlaceHolder1_Label3">كل الأقسام</span>
+                <a href='/products.aspx?catcode=00'><span style="opacity: 0.8; font-size: 12px !important;color: #384d55;">مشاهدة المزيد »</span></a>
+            </div>
+            
+                    <div class="col-12 randomp">
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12309-19871&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/19/19871.jpg" width="100%" height="auto" align="middle" class="lazyload" />
+                            </a>
+                        </div>
+		 <div class="author">
+                            Miami Mood Lined Noteb
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh7421-13458&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/13/13458.jpg" width="100%" height="auto" align="middle" class="lazyload" />
+                            </a>
+                        </div>
+		 <div class="author">
+                            Lebanese Themes Keycha
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12482-20088&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/20/20088.jpg" width="100%" height="auto" align="middle" class="lazyload" />
+                            </a>
+                        </div>
+		 <div class="author">
+                            Bialetti Rainbow 3 Cup
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12490-20098&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/20/20098.jpg" width="100%" height="auto" align="middle" class="lazyload" />
+                            </a>
+                        </div>
+		 <div class="author">
+                            Bialetti 4 Pcs Cappucc
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh9938-17236&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/17/17236.jpg" width="100%" height="auto" align="middle" class="lazyload" />
+                            </a>
+                        </div>
+		 <div class="author">
+                            Garden Weekly Desk Pla
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12192-19749&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/19/19749.jpg" width="100%" height="auto" align="middle" class="lazyload" />
+                            </a>
+                        </div>
+		 <div class="author">
+                            Bold Box - صندوق هدية
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh8802-15085&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/15/15085.jpg" width="100%" height="auto" align="middle" class="lazyload" />
+                            </a>
+                        </div>
+		 <div class="author">
+                            Pumpkin Spice Weekly D
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh12286-19845&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/19/19845.jpg" width="100%" height="auto" align="middle" class="lazyload" />
+                            </a>
+                        </div>
+		 <div class="author">
+                            Therapy Pin - دبوس الع
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh8796-15078&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/15/15078.jpg" width="100%" height="auto" align="middle" class="lazyload" />
+                            </a>
+                        </div>
+		 <div class="author">
+                            Boo Basket - Pumpkin S
+                        </div>
+                    </div>
+                
+                    <div class='gridview-random gridview-randomp'>
+                        <div class='empty-ribbon'></div>
+                        <div class="imggrid">
+                            <a href="https://www.neelwafurat.com/hcitempage.aspx?id=lbh7270-13165&search=handcrafts">
+                                <img data-src="https://www.neelwafurat.com/images/lb/hc/idautosub/13/13165.jpg" width="100%" height="auto" align="middle" class="lazyload" />
+                            </a>
+                        </div>
+		 <div class="author">
+                            Scary Pumpkin Face Can
+                        </div>
+                    </div>
+                
+                    </div>
+                
+            
+        </div>
+        
+
+    </div>
+ <script>
+        function deferIframe() {
+            var iframeElem = document.getElementsByTagName('iframe');
+            for (var i = 0; i < iframeElem.length; i++) {
+                if (iframeElem[i].getAttribute('data-src')) {
+                    iframeElem[i].setAttribute('src', iframeElem[i].getAttribute('data-src'));
+                }
+            }
+        }
+        window.onload = deferIframe;
+    </script>   
+    <script>
+        $(document).ready(function () {
+            $('.bigslider').slick({
+                dots: true,
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 4000,
+                rtl: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            dots: false,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            dots: false,
+                        }
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+        });
+    </script>
+
+            </div>
+            <!-- -------------------------------------------------- End of body --------------------------------------------------  -->
+            <!-- -------------------------------------------------- footer --------------------------------------------------  -->
+            
+
+<link href="/css/controls/v-637602117681864462/footer_desktop.min.css" rel="stylesheet" />
+ <style>
+            .nwfNewsBox {
+                position: relative;
+                max-width: 300px;
+                margin: 14px 0 18px;
+                direction: rtl;
+            }
+
+                .nwfNewsBox .nwfT1 {
+                    display: block;
+                    color: #384D55;
+                    font-size: 14px;
+                    font-weight: bold;
+                    line-height: 1.6;
+                }
+
+                .nwfNewsBox .nwfT2 {
+                    display: block;
+                    color: #6b787e;
+                    font-size: 12.5px;
+                    line-height: 1.6;
+                    margin-bottom: 8px;
+                }
+
+                .nwfNewsBox .nwfRow {
+                    display: flex;
+                    gap: 6px;
+                    align-items: stretch;
+                }
+
+            .nwfSel {
+                width: 100%;
+                height: 36px;
+                box-sizing: border-box;
+                border: 1px solid #c9d0d3;
+                background: #fff;
+                border-radius: 6px;
+                padding: 0 8px;
+                font-size: 13.5px;
+                color: #384D55;
+                margin-bottom: 6px;
+                outline: none;
+            }
+
+                .nwfSel:focus {
+                    border-color: #A6CE39;
+                }
+
+            #nwfNewsEmail {
+                flex: 1;
+                min-width: 0;
+                height: 36px;
+                box-sizing: border-box;
+                border: 1px solid #c9d0d3;
+                background: #fff;
+                border-radius: 6px;
+                padding: 0 10px;
+                font-size: 13.5px;
+                outline: none;
+                color: #384D55;
+            }
+
+                #nwfNewsEmail:focus {
+                    border-color: #A6CE39;
+                }
+
+            #nwfNewsBtn {
+                height: 36px;
+                border: none;
+                border-radius: 6px;
+                background: #A6CE39;
+                color: #384D55;
+                font-weight: bold;
+                font-size: 14px;
+                padding: 0 18px;
+                cursor: pointer;
+                white-space: nowrap;
+                -webkit-appearance: none;
+                outline: none;
+            }
+
+                #nwfNewsBtn:disabled {
+                    opacity: .6;
+                    cursor: default;
+                }
+
+            #nwfNewsMsg {
+                font-size: 12.5px;
+                font-weight: bold;
+                line-height: 1.6;
+                margin-top: 7px;
+                min-height: 16px;
+                color: #384D55;
+            }
+
+                #nwfNewsMsg.nwfErr {
+                    color: #c0392b;
+                }
+
+                #nwfNewsMsg.nwfOk {
+                    color: #4e8b1f;
+                }
+
+            #nwfNewsHp {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                border: 0;
+                opacity: 0;
+                pointer-events: none;
+            }
+        </style>
+<div class="row footer_div">
+    
+    <div class="footer_block col-xs-6 col-s-4 col-md-3 col-xl-2">
+       <span class="footer_title">عن نيل وفرات</span>
+        <a href="https://www.neelwafurat.com/about.aspx?search="><span>عن الشركة</span></a>
+        <a href="https://www.neelwafurat.com/prequirements.aspx"><span>سياسة الشركة </span></a>
+        <a href="/videos.aspx"><span>فيديوهات</span></a>
+        <a href="https://www.neelwafurat.com/publishers.aspx"><span>انشر كتابك</span></a>
+        
+        
+        
+    </div>
+    <div class="footer_block col-xs-6 col-s-4 col-md-3 col-xl-2">
+         <span class="footer_title">حسابك</span>
+        <a href="/ssl/tracking/signin.aspx"><span>حسابك</span></a>
+        <a href="https://www.neelwafurat.com/cart.aspx"><span>عربة التسوق</span></a>
+        <a href="/wishlist.aspx"><span>لائحة الأمنيات</span> </a>
+    </div>
+    <div class="footer_block col-xs-6 col-s-4 col-md-3 col-xl-2">
+         <span class="footer_title">حمّل iKitab</span>
+        <a href="https://apps.apple.com/us/app/ikitab/id396403617">
+            <img src="https://www.neelwafurat.com/graphics/mastertest/appstore.png" /></a>
+        <a href="https://play.google.com/store/apps/details?id=com.neelwafurat.iKitabAndroid">
+            <img src="https://www.neelwafurat.com/images/icons/googleplay.gif" /></a>
+    </div>
+    <div class="footer_block col-xs-6 col-s-4 col-md-3 col-xl-2">
+        <span class="footer_title">وسائل الدفع</span>
+        <div style="margin-bottom: 6px;">
+            <img src="https://www.neelwafurat.com/graphics/common/amex.png" />
+            <img src="https://neelwafurat.com/ssl/graphics/mada.png" style="width: 73px;"/>
+
+        </div>
+        <div style="margin-bottom: 6px;">
+            <img src="https://www.neelwafurat.com/graphics/common/mastercard.png" />
+            <img src="https://www.neelwafurat.com/graphics/common/visa.png" />
+        </div>
+        <div>
+            <img src="https://www.neelwafurat.com/graphics/common/wu.png" id="ctl00_footer1_wuimg" style="border-radius: 5px" />
+            
+	                
+        </div>
+	<div>
+	     <img src="https://neelwafurat.com/graphics/apay1.png" style="width: 73px;"/>
+            <img src="https://neelwafurat.com/graphics/gpay1.png" style="width: 73px;"/>
+        </div>
+    </div>
+    <div class="footer_block col-xs-12 col-s-8 col-md-12 col-xl-4">
+        <span class="footer_title">تواصل معنا</span>
+        <a href="https://www.neelwafurat.com/help/contactus/contactus.aspx?search=books"><span>تواصل معنا</span></a>
+        <a href="https://www.neelwafurat.com/help/help.aspx?search=books"><span>أسئلة يتكرر طرحها</span></a>        
+            <span id="ctl00_footer1_phoneNum" dir="ltr"><a href='tel:0096171172802'>+96171172802</a></span>        
+        <a href="mailto:info@nwf.com">info@nwf.com</a>
+         <a href="https://www.neelwafurat.com/ssl/newsletters/newsletter_checkin.aspx"><span>نشرة الإصدارات</span></a>
+	  <div class="nwfNewsBox">
+            <span class="nwfT1">اشترك مجاناً في نشراتنا البريدية</span>
+            <span class="nwfT2">كي يصلك آخر أخبار الشركة</span>
+            <div id="nwfNewsRow">
+                <select name="ctl00$footer1$ddCountry" id="ctl00_footer1_ddCountry" class="nwfSel">
+	<option value="">أخبرنا من أين أنت</option>
+	<option value="إثيوبيا">إثيوبيا</option>
+	<option value="أذربيجان">أذربيجان</option>
+	<option value="أرمينيا">أرمينيا</option>
+	<option value="أروبا">أروبا</option>
+	<option value="إريتريا">إريتريا</option>
+	<option value="إسبانيا">إسبانيا</option>
+	<option value="أستراليا">أستراليا</option>
+	<option value="إستونيا">إستونيا</option>
+	<option value="ألبانيا">ألبانيا</option>
+	<option value="ألمانيا">ألمانيا</option>
+	<option value="أنتيغوا وبربودا">أنتيغوا وبربودا</option>
+	<option value="أنجولا">أنجولا</option>
+	<option value="أندورا">أندورا</option>
+	<option value="إندونيسيا">إندونيسيا</option>
+	<option value="أنغويلا">أنغويلا</option>
+	<option value="أوروغواي">أوروغواي</option>
+	<option value="أوزبكستان">أوزبكستان</option>
+	<option value="أوغندا">أوغندا</option>
+	<option value="أوكرانيا">أوكرانيا</option>
+	<option value="إيران، جمهورية أيرلندا الإسلامية">إيران، جمهورية أيرلندا الإسلامية</option>
+	<option value="أيرلندا">أيرلندا</option>
+	<option value="أيسلندا">أيسلندا</option>
+	<option value="إيطاليا">إيطاليا</option>
+	<option value="الأرجنتين">الأرجنتين</option>
+	<option value="الأردن">الأردن</option>
+	<option value="الإقليم الجنوبي الفرنسي. الجابون">الإقليم الجنوبي الفرنسي. الجابون</option>
+	<option value="الإكوادور">الإكوادور</option>
+	<option value="الإمارات">الإمارات</option>
+	<option value="الاتحاد الروسي، جزر">الاتحاد الروسي، جزر</option>
+	<option value="البحرين">البحرين</option>
+	<option value="البرازيل">البرازيل</option>
+	<option value="البرتغال">البرتغال</option>
+	<option value="البوسنة والهرسك">البوسنة والهرسك</option>
+	<option value="الجابون">الجابون</option>
+	<option value="الجبل الأسود">الجبل الأسود</option>
+	<option value="الجزائر">الجزائر</option>
+	<option value="الدنمارك">الدنمارك</option>
+	<option value="الرأس الأخضر">الرأس الأخضر</option>
+	<option value="السعودية">السعودية</option>
+	<option value="السلفادور">السلفادور</option>
+	<option value="السنغال">السنغال</option>
+	<option value="السودان">السودان</option>
+	<option value="السويد">السويد</option>
+	<option value="الصحراء الغربية">الصحراء الغربية</option>
+	<option value="الصومال">الصومال</option>
+	<option value="العراق">العراق</option>
+	<option value="الفلبين، جزر">الفلبين، جزر</option>
+	<option value="القارة القطبية الجنوبية">القارة القطبية الجنوبية</option>
+	<option value="الكاميرون">الكاميرون</option>
+	<option value="الكونغو">الكونغو</option>
+	<option value="الكويت">الكويت</option>
+	<option value="المجر">المجر</option>
+	<option value="المحيط الهندي البريطاني. بروناي">المحيط الهندي البريطاني. بروناي</option>
+	<option value="المغرب">المغرب</option>
+	<option value="المكسيك">المكسيك</option>
+	<option value="المملكة المتحدة">المملكة المتحدة</option>
+	<option value="النرويج">النرويج</option>
+	<option value="النمسا">النمسا</option>
+	<option value="النيجر">النيجر</option>
+	<option value="الهند">الهند</option>
+	<option value="الولايات المتحدة الأمريكية">الولايات المتحدة الأمريكية</option>
+	<option value="اليابان">اليابان</option>
+	<option value="اليمن">اليمن</option>
+	<option value="اليونان">اليونان</option>
+	<option value="بابوا غينيا الجديدة">بابوا غينيا الجديدة</option>
+	<option value="باراغواي">باراغواي</option>
+	<option value="باكستان">باكستان</option>
+	<option value="بالاو">بالاو</option>
+	<option value="بربادوس">بربادوس</option>
+	<option value="برمودا">برمودا</option>
+	<option value="بلجيكا">بلجيكا</option>
+	<option value="بلغاريا">بلغاريا</option>
+	<option value="بليزي">بليزي</option>
+	<option value="بنغلاديش">بنغلاديش</option>
+	<option value="بنغلاديش">بنغلاديش</option>
+	<option value="بنما">بنما</option>
+	<option value="بنين">بنين</option>
+	<option value="بوتان">بوتان</option>
+	<option value="بوتسوانا">بوتسوانا</option>
+	<option value="بورتوريكو">بورتوريكو</option>
+	<option value="بوركينا فاسو">بوركينا فاسو</option>
+	<option value="بوروندي">بوروندي</option>
+	<option value="بولندا">بولندا</option>
+	<option value="بوليفيا">بوليفيا</option>
+	<option value="بولينيزيا الفرنسية">بولينيزيا الفرنسية</option>
+	<option value="بيتكيرن">بيتكيرن</option>
+	<option value="بيرو">بيرو</option>
+	<option value="بيلاروسيا">بيلاروسيا</option>
+	<option value="تايلاند">تايلاند</option>
+	<option value="تايوان">تايوان</option>
+	<option value="تركمانستان">تركمانستان</option>
+	<option value="تركيا">تركيا</option>
+	<option value="ترينيداد وتوباغو">ترينيداد وتوباغو</option>
+	<option value="تشاد">تشاد</option>
+	<option value="تشيلي">تشيلي</option>
+	<option value="تنزانيا">تنزانيا</option>
+	<option value="توغو">توغو</option>
+	<option value="توفالو">توفالو</option>
+	<option value="توكيلاو">توكيلاو</option>
+	<option value="تونس">تونس</option>
+	<option value="تونغا">تونغا</option>
+	<option value="تيمور الشرقية">تيمور الشرقية</option>
+	<option value="جامايكا">جامايكا</option>
+	<option value="جبل طارق">جبل طارق</option>
+	<option value="جرينلاند">جرينلاند</option>
+	<option value="جزر البهاما">جزر البهاما</option>
+	<option value="جزر القمر">جزر القمر</option>
+	<option value="جزر الكناري">جزر الكناري</option>
+	<option value="جزر المالديف">جزر المالديف</option>
+	<option value="جزر توركس وكايكوس">جزر توركس وكايكوس</option>
+	<option value="جزر سليمان">جزر سليمان</option>
+	<option value="جزر فارو">جزر فارو</option>
+	<option value="جزر فوكلاند">جزر فوكلاند</option>
+	<option value="جزر فيرجن (البريطانية)">جزر فيرجن (البريطانية)</option>
+	<option value="جزر فيرجن (الولايات المتحدة الأمريكية)">جزر فيرجن (الولايات المتحدة الأمريكية)</option>
+	<option value="جزر كايمان">جزر كايمان</option>
+	<option value="جزر كوك">جزر كوك</option>
+	<option value="جزر كوكوس (كيلينغ)">جزر كوكوس (كيلينغ)</option>
+	<option value="جزر مارشال">جزر مارشال</option>
+	<option value="جزر ماريانا الشمالية">جزر ماريانا الشمالية</option>
+	<option value="جزر هيرد وماكدونالد.">جزر هيرد وماكدونالد.</option>
+	<option value="جزر واليس وفوتونا">جزر واليس وفوتونا</option>
+	<option value="جزيرة بوفيت">جزيرة بوفيت</option>
+	<option value="جزيرة كريسماس">جزيرة كريسماس</option>
+	<option value="جزيرة نورفولك">جزيرة نورفولك</option>
+	<option value="جمهورية أفريقيا الوسطى">جمهورية أفريقيا الوسطى</option>
+	<option value="جمهورية التشيك">جمهورية التشيك</option>
+	<option value="جمهورية الدومينيكان">جمهورية الدومينيكان</option>
+	<option value="جمهورية الصين الشعبية">جمهورية الصين الشعبية</option>
+	<option value="جمهورية كوريا">جمهورية كوريا</option>
+	<option value="جمهورية لاو الديمقراطية الشعبية">جمهورية لاو الديمقراطية الشعبية</option>
+	<option value="جمهورية مقدونيا (جمهورية مقدونيا اليوغوسلافية السابقة)">جمهورية مقدونيا (جمهورية مقدونيا اليوغوسلافية السابقة)</option>
+	<option value="جمهورية ناورو">جمهورية ناورو</option>
+	<option value="جنوب أفريقيا">جنوب أفريقيا</option>
+	<option value="جورجيا">جورجيا</option>
+	<option value="جيبوتي">جيبوتي</option>
+	<option value="دولة الفاتيكان">دولة الفاتيكان</option>
+	<option value="دومينيكا">دومينيكا</option>
+	<option value="رواندا">رواندا</option>
+	<option value="رومانيا">رومانيا</option>
+	<option value="ريونيون، جزر">ريونيون، جزر</option>
+	<option value="زائير">زائير</option>
+	<option value="زامبيا">زامبيا</option>
+	<option value="زيمبابوي">زيمبابوي</option>
+	<option value="ساحل العاج">ساحل العاج</option>
+	<option value="ساموا">ساموا</option>
+	<option value="ساموا الأمريكية">ساموا الأمريكية</option>
+	<option value="سان مارينو">سان مارينو</option>
+	<option value="سانت بيير وميكلون">سانت بيير وميكلون</option>
+	<option value="سانت فنسنت وجزر غرينادين">سانت فنسنت وجزر غرينادين</option>
+	<option value="سانت كيتس ونيفيس">سانت كيتس ونيفيس</option>
+	<option value="سانت لوسيا">سانت لوسيا</option>
+	<option value="سانت هيلينا">سانت هيلينا</option>
+	<option value="ساو تومي وبرينسيبي">ساو تومي وبرينسيبي</option>
+	<option value="سريلانكا">سريلانكا</option>
+	<option value="سلوفاكيا">سلوفاكيا</option>
+	<option value="سلوفينيا">سلوفينيا</option>
+	<option value="سنغافورة">سنغافورة</option>
+	<option value="سوازيلاند">سوازيلاند</option>
+	<option value="سوريا">سوريا</option>
+	<option value="سورينام">سورينام</option>
+	<option value="سويسرا">سويسرا</option>
+	<option value="سيراليون">سيراليون</option>
+	<option value="سيشيل">سيشيل</option>
+	<option value="صربيا">صربيا</option>
+	<option value="طاجيكستان">طاجيكستان</option>
+	<option value="عمان">عمان</option>
+	<option value="غامبيا">غامبيا</option>
+	<option value="غانا">غانا</option>
+	<option value="غرينادا">غرينادا</option>
+	<option value="غواتيمالا">غواتيمالا</option>
+	<option value="غوادلوب">غوادلوب</option>
+	<option value="غوام">غوام</option>
+	<option value="غويانا الفرنسية">غويانا الفرنسية</option>
+	<option value="غيانا">غيانا</option>
+	<option value="غينيا">غينيا</option>
+	<option value="غينيا الاستوائية">غينيا الاستوائية</option>
+	<option value="غينيا بيساو">غينيا بيساو</option>
+	<option value="فانواتو">فانواتو</option>
+	<option value="فرنسا">فرنسا</option>
+	<option value="فلسطين">فلسطين</option>
+	<option value="فنزويلا">فنزويلا</option>
+	<option value="فنلندا">فنلندا</option>
+	<option value="فيتنام">فيتنام</option>
+	<option value="فيجي">فيجي</option>
+	<option value="قبرص">قبرص</option>
+	<option value="قرغيزستان">قرغيزستان</option>
+	<option value="قطر">قطر</option>
+	<option value="كازاخستان">كازاخستان</option>
+	<option value="كاليدونيا الجديدة">كاليدونيا الجديدة</option>
+	<option value="كرواتيا">كرواتيا</option>
+	<option value="كمبوديا">كمبوديا</option>
+	<option value="كندا">كندا</option>
+	<option value="كوبا">كوبا</option>
+	<option value="كوريا، جمهورية كوريا الديمقراطية الشعبية">كوريا، جمهورية كوريا الديمقراطية الشعبية</option>
+	<option value="كوستاريكا">كوستاريكا</option>
+	<option value="كولومبيا">كولومبيا</option>
+	<option value="كيريباتي">كيريباتي</option>
+	<option value="كينيا">كينيا</option>
+	<option value="لاتفيا">لاتفيا</option>
+	<option value="لبنان">لبنان</option>
+	<option value="لوكسمبورج">لوكسمبورج</option>
+	<option value="ليبيا">ليبيا</option>
+	<option value="ليبيريا">ليبيريا</option>
+	<option value="ليتوانيا">ليتوانيا</option>
+	<option value="ليختنشتاين">ليختنشتاين</option>
+	<option value="ليسوتو">ليسوتو</option>
+	<option value="مارتينيك">مارتينيك</option>
+	<option value="ماكاو">ماكاو</option>
+	<option value="مالطا">مالطا</option>
+	<option value="مالي">مالي</option>
+	<option value="ماليزيا">ماليزيا</option>
+	<option value="مايوت">مايوت</option>
+	<option value="مدغشقر">مدغشقر</option>
+	<option value="مصر">مصر</option>
+	<option value="ملاوي">ملاوي</option>
+	<option value="منغوليا">منغوليا</option>
+	<option value="موريتانيا">موريتانيا</option>
+	<option value="موريشيوس">موريشيوس</option>
+	<option value="موزمبيق">موزمبيق</option>
+	<option value="مولدوفا، جمهورية">مولدوفا، جمهورية</option>
+	<option value="موناكو">موناكو</option>
+	<option value="مونتسيرات">مونتسيرات</option>
+	<option value="ميانمار">ميانمار</option>
+	<option value="ميكرونيزيا">ميكرونيزيا</option>
+	<option value="ناميبيا">ناميبيا</option>
+	<option value="نيبال">نيبال</option>
+	<option value="نيجيريا">نيجيريا</option>
+	<option value="نيكاراجوا">نيكاراجوا</option>
+	<option value="نيوزيلندا">نيوزيلندا</option>
+	<option value="نيوي">نيوي</option>
+	<option value="هايتي">هايتي</option>
+	<option value="هندوراس">هندوراس</option>
+	<option value="هولندا">هولندا</option>
+	<option value="هونغ كونغ">هونغ كونغ</option>
+
+</select>
+                <div class="nwfRow">
+                    <input type="email" id="nwfNewsEmail" placeholder="بريدك الإلكتروني" dir="ltr" maxlength="150" />
+                    <input type="text" id="nwfNewsHp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                    <button type="button" id="nwfNewsBtn">اشترك</button>
+                </div>
+            </div>
+            <div id="nwfNewsMsg"></div>
+        </div>
+         <script type="text/javascript">
+            $(function () {
+                var $btn = $('#nwfNewsBtn'),
+                    $email = $('#nwfNewsEmail'),
+                    $msg = $('#nwfNewsMsg'),
+                    $cnt = $('#ctl00_footer1_ddCountry');
+
+                function setMsg(t, c) {
+                    $msg.removeClass('nwfOk nwfErr').addClass(c || '').text(t);
+                }
+
+                function submit() {
+                    var em = $.trim($email.val());
+                    var cn = $.trim($cnt.val());
+
+                    if (em.length < 5 || em.indexOf('@') < 1 || em.indexOf('.') < 0) {
+                        setMsg('الرجاء التأكد من البريد الإلكتروني', 'nwfErr');
+                        $email.focus();
+                        return;
+                    }
+
+                    if (cn === '') {
+                        setMsg('الرجاء اختيار الدولة', 'nwfErr');
+                        $cnt.focus();
+                        return;
+                    }
+
+                    $btn.prop('disabled', true);
+                    setMsg('جارٍ الاشتراك...', '');
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/newslettersubscribe.asmx/subscribe',
+                        data: JSON.stringify({ email: em, hp: $('#nwfNewsHp').val(), country: cn }),
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        success: function (r) {
+                            $btn.prop('disabled', false);
+                            if (r.d === 'ok') {
+                                $('#nwfNewsRow').hide();
+                                setMsg('تم اشتراكك بنجاح، شكراً لك', 'nwfOk');
+                            } else if (r.d === 'bad') {
+                                setMsg('الرجاء التأكد من البريد الإلكتروني', 'nwfErr');
+                            } else if (r.d === 'nocountry') {
+                                setMsg('الرجاء اختيار الدولة', 'nwfErr');
+                            } else if (r.d === 'slow') {
+                                setMsg('تم إرسال عدة طلبات، الرجاء المحاولة لاحقاً', 'nwfErr');
+                            } else if (r.d === 'cantsub') {
+                                setMsg('تعذّر الاشتراك بهذا البريد، الرجاء التواصل معنا', 'nwfErr');
+                            } else {
+                                setMsg('تعذّر إتمام الاشتراك، الرجاء المحاولة لاحقاً', 'nwfErr');
+                            }
+                        },
+                        error: function () {
+                            $btn.prop('disabled', false);
+                            setMsg('تعذّر إتمام الاشتراك، الرجاء المحاولة لاحقاً', 'nwfErr');
+                        }
+                    });
+                }
+
+                $btn.on('click', submit);
+
+                $email.on('keydown', function (e) {
+                    if (e.which === 13) { e.preventDefault(); submit(); }
+                });
+            });
+        </script>
+        <a class="inline" href="https://twitter.com/neelwafurat">
+            <img width="25" src="https://www.neelwafurat.com/graphics/common/twitter2.png" />
+        </a>
+        <a class="inline" href="https://www.facebook.com/neelwafurat">
+            <img width="25" src="https://www.neelwafurat.com/graphics/common/facebook2.png" />
+        </a>
+        <a class="inline" href="https://www.instagram.com/neelwafurat/">
+            <img width="25" src="https://www.neelwafurat.com/graphics/common/instagram2.png" />
+        </a>
+        <a class="inline" href="https://www.youtube.com/channel/UCEzRB7e98tu4F0K02Vnw_EA">
+            <img width="25" src="https://www.neelwafurat.com/graphics/common/youtube2.png" />
+        </a>
+        <a class="inline" href="https://www.pinterest.co.uk/neelwafurat/">
+            <img width="25" src="https://www.neelwafurat.com/graphics/common/pinterset.png" />
+        </a>
+        <a class="inline" href="https://www.tumblr.com/login?redirect_to=%2Fblog%2Fneelwafurat">
+            <img width="25" src="https://www.neelwafurat.com/graphics/common/tumblr.png" />
+        </a>
+    </div>        
+    <div class="col-xs-12">
+        <span id="ctl00_footer1_lcopyright" class="copyright">نيل وفرات.كوم 1998 -  2026. كافة الحقوق محفوظة ©</span>    
+        </div>
+</div>
+<input type="hidden" name="ctl00$footer1$iptest" id="ctl00_footer1_iptest" value="MR1MR2" />
+
+
+            
+            <!-- -------------------------------------------------- footer --------------------------------------------------  -->
+            
+            
+            
+            <input type="hidden" name="ctl00$ipadd" id="ctl00_ipadd" value="41.188.116.116" />
+            <input type="hidden" name="ctl00$ipcnt" id="ctl00_ipcnt" value="MR" />
+        </div>
+    
+</form>
+    <form action="https://sbcheckout.payfort.com/FortAPI/paymentPage" method="post" id="myform" target="myframe">
+        <input type="hidden" name="service_command" value="TOKENIZATION" />
+        <input type="hidden" name="language" value='' />
+        <input type="hidden" name="merchant_identifier" value='' />
+        <input type="hidden" name="access_code" value='' />
+
+        <input type="hidden" name="signature" value='' />
+        <input type="hidden" name="return_url" value='' />
+        <input type="hidden" name="merchant_reference" value='' />
+
+    </form>
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dropbtn = document.querySelector('.hiddendropbtn');
+    const dropdownLinks = document.querySelectorAll('.hiddendropdown-content a');
+    const webcountries = document.getElementById('ctl00_webcountries');
+
+    function updateSecondDropdown() {
+        const selectedValue = webcountries.value;
+        dropdownLinks.forEach(link => {
+            if (link.getAttribute('data-value') === selectedValue) {
+                const selectedText = link.textContent.trim();
+                const selectedImg = link.querySelector('img');
+                const selectedImgSrc = selectedImg ? selectedImg.src : '';
+
+                dropbtn.querySelector('.selected-text').textContent = selectedText;
+
+                if (selectedValue === 'all') {
+                    dropbtn.querySelector('.selected-img').style.display = 'none';
+                } else {
+                    dropbtn.querySelector('.selected-img').style.display = 'inline';
+                    dropbtn.querySelector('.selected-img').src = selectedImgSrc;
+                }
+            }
+        });
+    }
+
+    updateSecondDropdown();
+
+    // Handle click and touch events
+    function handleSelection(event) {
+        event.preventDefault();
+        const selectedText = this.textContent.trim();
+        const selectedValue = this.getAttribute('data-value');
+        const selectedImg = this.querySelector('img');
+        const selectedImgSrc = selectedImg ? selectedImg.src : '';
+
+        dropbtn.querySelector('.selected-text').textContent = selectedText;
+
+        if (selectedValue === 'all') {
+            dropbtn.querySelector('.selected-img').style.display = 'none';
+        } else {
+            dropbtn.querySelector('.selected-img').style.display = 'inline';
+            dropbtn.querySelector('.selected-img').src = selectedImgSrc;
+        }
+
+        webcountries.value = selectedValue;
+        const eventChange = new Event('change', { bubbles: true });
+        webcountries.dispatchEvent(eventChange);
+    }
+
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', handleSelection);
+        link.addEventListener('touchstart', handleSelection);
+    });
+});
+
+</script>
+ <script>
+        window.intercomSettings = {
+            app_id: "g8y9udxx"
+        };
+    </script>
+    <script> 
+        (function () { var w = window; var ic = w.Intercom; if (typeof ic === "function") { ic('reattach_activator'); ic('update', intercomSettings); } else { var d = document; var i = function () { i.c(arguments) }; i.q = []; i.c = function (args) { i.q.push(args) }; w.Intercom = i; function l() { var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://widget.intercom.io/widget/g8y9udxx'; var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); } if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })()
+    </script>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active-accordion");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+    <script>
+        $(function () {
+            var current = (location.pathname + location.search).substr(1)
+            $('#catright a').each(function () {
+                var $this = $(this);
+                // if the current path is like this link, make it active
+                if ($this.attr('href').indexOf(current) !== -1) {
+                    //alert( current);
+                    if (current !== "Browseoffers.aspx?search=offers") {
+                        $this.addClass('master-active');
+                        $this.closest("#catright").addClass('master-activebox')
+                    }
+                }
+            })
+        })
+    </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdown = document.getElementById('ctl00_ddlLanguages');
+        const originalParent = dropdown.parentElement; // Save the original parent of the dropdown
+        const logoContainer = document.querySelector('.nwflogo.one'); // Target the logo container
+
+        function adjustDropdownPosition() {
+            if (window.innerWidth < 768) {
+                // Ensure the dropdown is inside the logo container on small screens
+                if (!logoContainer.contains(dropdown)) {
+                    logoContainer.appendChild(dropdown);
+                }
+                dropdown.classList.add('mobile');
+            } else {
+                // Move the dropdown back to its original container for larger screens
+                if (!originalParent.contains(dropdown)) {
+                    originalParent.appendChild(dropdown);
+                }
+                dropdown.classList.remove('mobile');
+            }
+        }
+
+        // Adjust on load
+        adjustDropdownPosition();
+
+        // Adjust on window resize
+        window.addEventListener('resize', adjustDropdownPosition);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,907 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net (Default Deny)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // =========================================================================
+    // Global Hardened Primitives
+    // =========================================================================
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isSignedIn() { return request.auth != null; }
+    function isVerified() { return isSignedIn() && request.auth.token.email_verified == true; }
+    function isOwner(uid) { return isSignedIn() && request.auth.uid == uid; }
+    function isVerifiedOwner(uid) { return isVerified() && request.auth.uid == uid; }
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+    function isNonEmptyStr(val, maxLen) {
+      return val is string && val.size() >= 1 && val.size() <= maxLen;
+    }
+    function isBoundedStr(val, maxLen) {
+      return val is string && val.size() <= maxLen;
+    }
+
+    // Single Official Hardcoded Admin Check (Requires verified email token)
+    function isAdmin() {
+      return isVerified() && request.auth.token.email == 'elalyatalebjidou@gmail.com';
+    }
+
+    // =========================================================================
+    // Validation Blueprints (Anti-Update-Gap Helpers)
+    // =========================================================================
+    function isValidAdminRecord(d, uid) {
+      return d.keys().hasAll(['uid', 'email', 'grantedAt']) &&
+        d.keys().hasOnly(['uid', 'email', 'grantedAt', 'note']) &&
+        d.uid == uid &&
+        d.uid == request.auth.uid &&
+        d.email == 'elalyatalebjidou@gmail.com' &&
+        d.grantedAt is timestamp &&
+        (!d.keys().hasAny(['note']) || isBoundedStr(d.note, 200));
+    }
+
+    function isValidUserProfile(d, uid) {
+      return d.keys().hasAll([
+          'uid', 'name', 'role', 'track', 'preferredLang', 'level',
+          'emailVerified', 'disabled', 'createdAt', 'updatedAt'
+        ]) &&
+        d.keys().hasOnly([
+          'uid', 'name', 'role', 'track', 'preferredLang', 'level',
+          'emailVerified', 'disabled', 'activePlanSlug', 'activePlanNameAr',
+          'activePlanNameFr', 'subscriptionExpiresAt', 'profileCompleted',
+          'authProvider', 'acceptedTermsAt', 'acceptedPrivacyAt',
+          'createdAt', 'updatedAt'
+        ]) &&
+        d.uid == uid &&
+        isNonEmptyStr(d.name, 120) && d.name.size() >= 2 &&
+        d.role in ['student', 'admin'] &&
+        d.track in ['arabic', 'french', 'bilingual'] &&
+        d.preferredLang in ['ar', 'fr', 'en'] &&
+        d.level in ['foundation', 'intermediate', 'advanced'] &&
+        d.emailVerified is bool &&
+        d.disabled is bool &&
+        (!d.keys().hasAny(['activePlanSlug']) || isBoundedStr(d.activePlanSlug, 64)) &&
+        (!d.keys().hasAny(['activePlanNameAr']) || isBoundedStr(d.activePlanNameAr, 160)) &&
+        (!d.keys().hasAny(['activePlanNameFr']) || isBoundedStr(d.activePlanNameFr, 160)) &&
+        (!d.keys().hasAny(['subscriptionExpiresAt']) || d.subscriptionExpiresAt == null || isBoundedStr(d.subscriptionExpiresAt, 64)) &&
+        (!d.keys().hasAny(['profileCompleted']) || d.profileCompleted is bool) &&
+        (!d.keys().hasAny(['authProvider']) || isBoundedStr(d.authProvider, 40)) &&
+        (!d.keys().hasAny(['acceptedTermsAt']) || d.acceptedTermsAt == null || isBoundedStr(d.acceptedTermsAt, 64)) &&
+        (!d.keys().hasAny(['acceptedPrivacyAt']) || d.acceptedPrivacyAt == null || isBoundedStr(d.acceptedPrivacyAt, 64)) &&
+        d.createdAt is timestamp &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidUserPrivateInfo(d, uid) {
+      return d.keys().hasAll(['uid', 'email', 'createdAt', 'updatedAt']) &&
+        d.keys().hasOnly(['uid', 'email', 'phone', 'wilaya', 'city', 'institution', 'createdAt', 'updatedAt']) &&
+        d.uid == uid &&
+        isNonEmptyStr(d.email, 200) &&
+        (!d.keys().hasAny(['phone']) || isBoundedStr(d.phone, 40)) &&
+        (!d.keys().hasAny(['wilaya']) || isBoundedStr(d.wilaya, 100)) &&
+        (!d.keys().hasAny(['city']) || isBoundedStr(d.city, 100)) &&
+        (!d.keys().hasAny(['institution']) || isBoundedStr(d.institution, 140)) &&
+        d.createdAt is timestamp &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidLessonProgress(d, uid, lessonId) {
+      return d.keys().hasAll(['uid', 'lessonId', 'completed', 'isFavorite', 'updatedAt']) &&
+        d.keys().hasOnly(['uid', 'lessonId', 'completed', 'isFavorite', 'updatedAt']) &&
+        d.uid == uid &&
+        d.lessonId == lessonId &&
+        d.completed is bool &&
+        d.isFavorite is bool &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidNotificationRead(d, uid, notifId) {
+      return d.keys().hasAll(['uid', 'notificationId', 'readAt']) &&
+        d.keys().hasOnly(['uid', 'notificationId', 'readAt']) &&
+        d.uid == uid &&
+        d.notificationId == notifId &&
+        d.readAt is timestamp;
+    }
+
+    function isValidSubject(d) {
+      return d.keys().hasAll(['slug', 'nameAr', 'nameFr', 'tracks', 'displayOrder', 'active', 'updatedAt']) &&
+        d.keys().hasOnly(['slug', 'nameAr', 'nameFr', 'tracks', 'officialProgramRef', 'iconName', 'displayOrder', 'active', 'updatedAt']) &&
+        isNonEmptyStr(d.slug, 80) &&
+        isNonEmptyStr(d.nameAr, 140) &&
+        isNonEmptyStr(d.nameFr, 140) &&
+        d.tracks is list && d.tracks.size() >= 1 && d.tracks.size() <= 5 && d.tracks[0] is string &&
+        (!d.keys().hasAny(['officialProgramRef']) || isBoundedStr(d.officialProgramRef, 120)) &&
+        (!d.keys().hasAny(['iconName']) || isBoundedStr(d.iconName, 60)) &&
+        d.displayOrder is number &&
+        d.active is bool &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidLessonSection(d) {
+      return d.keys().hasAll(['titleAr', 'subjectSlug', 'track', 'level', 'displayOrder', 'active', 'createdAt', 'updatedAt']) &&
+        d.keys().hasOnly(['titleAr', 'titleFr', 'descriptionAr', 'descriptionFr', 'subjectSlug', 'track', 'level', 'displayOrder', 'active', 'createdAt', 'updatedAt']) &&
+        isNonEmptyStr(d.titleAr, 160) && d.titleAr.size() >= 2 &&
+        (!d.keys().hasAny(['titleFr']) || isBoundedStr(d.titleFr, 160)) &&
+        (!d.keys().hasAny(['descriptionAr']) || isBoundedStr(d.descriptionAr, 500)) &&
+        (!d.keys().hasAny(['descriptionFr']) || isBoundedStr(d.descriptionFr, 500)) &&
+        isNonEmptyStr(d.subjectSlug, 80) &&
+        d.track in ['all', 'arabic', 'french', 'bilingual'] &&
+        d.level in ['foundation', 'intermediate', 'advanced'] &&
+        d.displayOrder is number &&
+        d.active is bool &&
+        d.createdAt is timestamp &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidLesson(d) {
+      return d.keys().hasAll(['subjectSlug', 'track', 'level', 'lessonOrder', 'titleAr', 'explanationAr', 'active', 'createdAt', 'updatedAt']) &&
+        d.keys().hasOnly([
+          'numericId', 'subjectSlug', 'sectionId', 'track', 'level', 'lessonOrder',
+          'titleAr', 'titleFr', 'summaryAr', 'summaryFr',
+          'explanationAr', 'explanationSpeechAr', 'explanationFr',
+          'examples', 'exercises', 'mcq', 'active', 'createdAt', 'updatedAt'
+        ]) &&
+        (!d.keys().hasAny(['numericId']) || d.numericId is number) &&
+        isNonEmptyStr(d.subjectSlug, 80) &&
+        (!d.keys().hasAny(['sectionId']) || d.sectionId == null || isBoundedStr(d.sectionId, 128)) &&
+        d.track in ['all', 'arabic', 'french', 'bilingual'] &&
+        d.level in ['foundation', 'intermediate', 'advanced'] &&
+        d.lessonOrder is number &&
+        isNonEmptyStr(d.titleAr, 220) &&
+        (!d.keys().hasAny(['titleFr']) || isBoundedStr(d.titleFr, 220)) &&
+        (!d.keys().hasAny(['summaryAr']) || isBoundedStr(d.summaryAr, 1000)) &&
+        (!d.keys().hasAny(['summaryFr']) || isBoundedStr(d.summaryFr, 1000)) &&
+        isNonEmptyStr(d.explanationAr, 15000) &&
+        (!d.keys().hasAny(['explanationSpeechAr']) || isBoundedStr(d.explanationSpeechAr, 15000)) &&
+        (!d.keys().hasAny(['explanationFr']) || isBoundedStr(d.explanationFr, 15000)) &&
+        (!d.keys().hasAny(['examples']) || (d.examples is list && d.examples.size() <= 20)) &&
+        (!d.keys().hasAny(['exercises']) || (d.exercises is list && d.exercises.size() <= 20)) &&
+        (!d.keys().hasAny(['mcq']) || (d.mcq is list && d.mcq.size() <= 30)) &&
+        d.active is bool &&
+        d.createdAt is timestamp &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidPlan(d) {
+      return d.keys().hasAll([
+          'slug', 'nameAr', 'nameFr', 'priceMru', 'priceEur', 'currency',
+          'durationDays', 'billingCycle', 'active', 'displayOrder', 'updatedAt'
+        ]) &&
+        d.keys().hasOnly([
+          'numericId', 'slug', 'nameAr', 'nameFr', 'descriptionAr', 'descriptionFr',
+          'priceMru', 'priceEur', 'currency', 'durationDays', 'billingCycle',
+          'featuresAr', 'featuresFr', 'isPopular', 'active', 'displayOrder', 'updatedAt'
+        ]) &&
+        (!d.keys().hasAny(['numericId']) || d.numericId is number) &&
+        isNonEmptyStr(d.slug, 64) &&
+        isNonEmptyStr(d.nameAr, 160) &&
+        isNonEmptyStr(d.nameFr, 160) &&
+        (!d.keys().hasAny(['descriptionAr']) || isBoundedStr(d.descriptionAr, 500)) &&
+        (!d.keys().hasAny(['descriptionFr']) || isBoundedStr(d.descriptionFr, 500)) &&
+        d.priceMru is number && d.priceMru >= 0 &&
+        d.priceEur is number && d.priceEur >= 0 &&
+        isNonEmptyStr(d.currency, 10) &&
+        d.durationDays is number && d.durationDays >= 0 &&
+        d.billingCycle in ['free', 'monthly', 'quarterly', 'season', 'annual'] &&
+        (!d.keys().hasAny(['featuresAr']) || (d.featuresAr is list && d.featuresAr.size() <= 20)) &&
+        (!d.keys().hasAny(['featuresFr']) || (d.featuresFr is list && d.featuresFr.size() <= 20)) &&
+        (!d.keys().hasAny(['isPopular']) || d.isPopular is bool) &&
+        d.active is bool &&
+        d.displayOrder is number &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidUserSubscription(d) {
+      return d.keys().hasAll([
+          'uid', 'planId', 'planSlug', 'planNameAr', 'planNameFr',
+          'billingCycle', 'status', 'startsAt', 'createdAt', 'updatedAt'
+        ]) &&
+        d.keys().hasOnly([
+          'uid', 'planId', 'planSlug', 'planNameAr', 'planNameFr',
+          'billingCycle', 'status', 'orderId', 'startsAt', 'expiresAt',
+          'createdAt', 'updatedAt'
+        ]) &&
+        isNonEmptyStr(d.uid, 128) &&
+        isNonEmptyStr(d.planId, 128) &&
+        isNonEmptyStr(d.planSlug, 64) &&
+        isNonEmptyStr(d.planNameAr, 160) &&
+        isNonEmptyStr(d.planNameFr, 160) &&
+        d.billingCycle in ['free', 'monthly', 'quarterly', 'season', 'annual'] &&
+        d.status in ['pending', 'active', 'expired', 'cancelled'] &&
+        (!d.keys().hasAny(['orderId']) || d.orderId == null || isBoundedStr(d.orderId, 128)) &&
+        d.startsAt is timestamp &&
+        (!d.keys().hasAny(['expiresAt']) || d.expiresAt == null || d.expiresAt is timestamp) &&
+        d.createdAt is timestamp &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidSubscriptionRequest(d, reqId) {
+      return d.keys().hasAll([
+          'subscriptionRequestId', 'userId', 'uid', 'userEmail', 'userName',
+          'planId', 'planSlug', 'planName', 'amount', 'currency', 'paymentMethod',
+          'status', 'transactionId', 'transactionReference', 'transactionAt',
+          'beneficiaryName', 'proofHash', 'proofRefId', 'uploadedAt', 'expiresAt',
+          'createdAt', 'updatedAt'
+        ]) &&
+        d.keys().hasOnly([
+          'subscriptionRequestId', 'userId', 'uid', 'userEmail', 'userName',
+          'planId', 'planSlug', 'planName', 'amount', 'paidAmount', 'remainingAmount',
+          'currency', 'paymentMethod', 'status', 'transactionId', 'transactionReference',
+          'transactionAt', 'beneficiaryName', 'proofHash', 'proofRefId', 'uploadedAt',
+          'secondPaymentMethod', 'secondTransactionId', 'secondTransactionReference',
+          'secondTransactionAt', 'secondProofHash', 'secondUploadedAt', 'adminClarificationNote',
+          'startsAt', 'expiresAt', 'approvedBy', 'approvedAt', 'rejectionReason',
+          'createdAt', 'updatedAt'
+        ]) &&
+        d.subscriptionRequestId == reqId &&
+        isNonEmptyStr(d.subscriptionRequestId, 128) &&
+        isNonEmptyStr(d.userId, 128) &&
+        isNonEmptyStr(d.uid, 128) &&
+        d.userId == d.uid &&
+        isNonEmptyStr(d.userEmail, 200) &&
+        isBoundedStr(d.userName, 140) &&
+        isNonEmptyStr(d.planId, 128) &&
+        isNonEmptyStr(d.planSlug, 64) &&
+        isNonEmptyStr(d.planName, 160) &&
+        d.amount is number && d.amount >= 0 &&
+        (!d.keys().hasAny(['paidAmount']) || (d.paidAmount is number && d.paidAmount >= 0)) &&
+        (!d.keys().hasAny(['remainingAmount']) || (d.remainingAmount is number && d.remainingAmount >= 0)) &&
+        isNonEmptyStr(d.currency, 10) &&
+        isNonEmptyStr(d.paymentMethod, 40) &&
+        d.status in ['pending_review', 'partial_pending', 'needs_info', 'approved', 'rejected', 'expired'] &&
+        isBoundedStr(d.transactionId, 120) &&
+        isBoundedStr(d.transactionReference, 120) &&
+        isBoundedStr(d.transactionAt, 64) &&
+        isBoundedStr(d.beneficiaryName, 140) &&
+        isBoundedStr(d.proofHash, 128) &&
+        isBoundedStr(d.proofRefId, 128) &&
+        isBoundedStr(d.uploadedAt, 64) &&
+        (!d.keys().hasAny(['secondPaymentMethod']) || isBoundedStr(d.secondPaymentMethod, 40)) &&
+        (!d.keys().hasAny(['secondTransactionId']) || isBoundedStr(d.secondTransactionId, 120)) &&
+        (!d.keys().hasAny(['secondTransactionReference']) || isBoundedStr(d.secondTransactionReference, 120)) &&
+        (!d.keys().hasAny(['secondTransactionAt']) || isBoundedStr(d.secondTransactionAt, 64)) &&
+        (!d.keys().hasAny(['secondProofHash']) || isBoundedStr(d.secondProofHash, 128)) &&
+        (!d.keys().hasAny(['secondUploadedAt']) || isBoundedStr(d.secondUploadedAt, 64)) &&
+        (!d.keys().hasAny(['adminClarificationNote']) || isBoundedStr(d.adminClarificationNote, 600)) &&
+        (d.expiresAt == null || d.expiresAt is timestamp) &&
+        (!d.keys().hasAny(['startsAt']) || isBoundedStr(d.startsAt, 64)) &&
+        (!d.keys().hasAny(['approvedBy']) || isBoundedStr(d.approvedBy, 200)) &&
+        (!d.keys().hasAny(['approvedAt']) || isBoundedStr(d.approvedAt, 64)) &&
+        (!d.keys().hasAny(['rejectionReason']) || isBoundedStr(d.rejectionReason, 500)) &&
+        d.createdAt is timestamp &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidPaymentProof(d, proofId) {
+      return d.keys().hasAll([
+          'subscriptionRequestId', 'uid', 'paymentMethod', 'transactionId',
+          'transactionReference', 'proofHash', 'proofDataUrl', 'uploadedAt', 'createdAt'
+        ]) &&
+        d.keys().hasOnly([
+          'subscriptionRequestId', 'uid', 'paymentMethod', 'transactionId',
+          'transactionReference', 'proofHash', 'proofDataUrl', 'uploadedAt', 'createdAt'
+        ]) &&
+        d.subscriptionRequestId == proofId &&
+        isNonEmptyStr(d.subscriptionRequestId, 128) &&
+        isNonEmptyStr(d.uid, 128) &&
+        isNonEmptyStr(d.paymentMethod, 40) &&
+        isBoundedStr(d.transactionId, 120) &&
+        isBoundedStr(d.transactionReference, 120) &&
+        isNonEmptyStr(d.proofHash, 128) &&
+        isNonEmptyStr(d.proofDataUrl, 950000) &&
+        isBoundedStr(d.uploadedAt, 64) &&
+        d.createdAt is timestamp;
+    }
+
+    function isValidApprovedPayment(d, payId) {
+      return d.keys().hasAll([
+          'paymentId', 'subscriptionRequestId', 'uid', 'planSlug', 'amount',
+          'currency', 'paymentMethod', 'transactionReference', 'transactionId',
+          'approvedBy', 'approvedAt', 'createdAt'
+        ]) &&
+        d.keys().hasOnly([
+          'paymentId', 'subscriptionRequestId', 'uid', 'planSlug', 'amount',
+          'currency', 'paymentMethod', 'transactionReference', 'transactionId',
+          'approvedBy', 'approvedAt', 'createdAt'
+        ]) &&
+        d.paymentId == payId &&
+        isNonEmptyStr(d.paymentId, 128) &&
+        isNonEmptyStr(d.subscriptionRequestId, 128) &&
+        isNonEmptyStr(d.uid, 128) &&
+        isNonEmptyStr(d.planSlug, 64) &&
+        d.amount is number && d.amount >= 0 &&
+        isNonEmptyStr(d.currency, 10) &&
+        isNonEmptyStr(d.paymentMethod, 40) &&
+        isBoundedStr(d.transactionReference, 120) &&
+        isBoundedStr(d.transactionId, 120) &&
+        isNonEmptyStr(d.approvedBy, 200) &&
+        isNonEmptyStr(d.approvedAt, 64) &&
+        d.createdAt is timestamp;
+    }
+
+    function isValidPaymentMethod(d, methodId) {
+      return d.keys().hasAll(['code', 'nameAr', 'nameFr', 'active', 'displayOrder', 'updatedAt']) &&
+        d.keys().hasOnly([
+          'code', 'nameAr', 'nameFr', 'accountNumber', 'beneficiaryName',
+          'instructionsAr', 'instructionsFr', 'active', 'displayOrder', 'updatedAt'
+        ]) &&
+        d.code == methodId &&
+        isNonEmptyStr(d.code, 40) &&
+        isNonEmptyStr(d.nameAr, 120) &&
+        isNonEmptyStr(d.nameFr, 120) &&
+        (!d.keys().hasAny(['accountNumber']) || isBoundedStr(d.accountNumber, 120)) &&
+        (!d.keys().hasAny(['beneficiaryName']) || isBoundedStr(d.beneficiaryName, 140)) &&
+        (!d.keys().hasAny(['instructionsAr']) || isBoundedStr(d.instructionsAr, 1000)) &&
+        (!d.keys().hasAny(['instructionsFr']) || isBoundedStr(d.instructionsFr, 1000)) &&
+        d.active is bool &&
+        d.displayOrder is number &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidPlanLimit(d, tierId) {
+      return d.keys().hasAll(['tier', 'dailyLessons', 'dailyQuestions', 'dailyExams', 'updatedAt']) &&
+        d.keys().hasOnly(['tier', 'dailyLessons', 'dailyQuestions', 'dailyExams', 'updatedAt']) &&
+        d.tier == tierId &&
+        isNonEmptyStr(d.tier, 40) &&
+        d.dailyLessons is number && d.dailyLessons >= 0 &&
+        d.dailyQuestions is number && d.dailyQuestions >= 0 &&
+        d.dailyExams is number && d.dailyExams >= 0 &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidPaymentOrder(d) {
+      return d.keys().hasAll([
+          'uid', 'userEmail', 'userName', 'planId', 'planNameAr', 'planNameFr',
+          'amountMru', 'amountEur', 'currency', 'cardBrand', 'cardLast4',
+          'status', 'transactionRef', 'createdAt', 'updatedAt'
+        ]) &&
+        d.keys().hasOnly([
+          'uid', 'userEmail', 'userName', 'planId', 'planNameAr', 'planNameFr',
+          'amountMru', 'amountEur', 'currency', 'cardBrand', 'cardLast4',
+          'cardholderName', 'phone', 'wilaya', 'city', 'status', 'transactionRef',
+          'createdAt', 'updatedAt'
+        ]) &&
+        isNonEmptyStr(d.uid, 128) &&
+        isNonEmptyStr(d.userEmail, 200) &&
+        isNonEmptyStr(d.userName, 140) &&
+        isNonEmptyStr(d.planId, 128) &&
+        isNonEmptyStr(d.planNameAr, 160) &&
+        isNonEmptyStr(d.planNameFr, 160) &&
+        d.amountMru is number && d.amountMru >= 0 &&
+        d.amountEur is number && d.amountEur >= 0 &&
+        isNonEmptyStr(d.currency, 10) &&
+        d.cardBrand in ['visa', 'mastercard'] &&
+        d.cardLast4 is string && d.cardLast4.matches('^[0-9]{4}$') &&
+        (!d.keys().hasAny(['cardholderName']) || isBoundedStr(d.cardholderName, 120)) &&
+        (!d.keys().hasAny(['phone']) || isBoundedStr(d.phone, 40)) &&
+        (!d.keys().hasAny(['wilaya']) || isBoundedStr(d.wilaya, 100)) &&
+        (!d.keys().hasAny(['city']) || isBoundedStr(d.city, 100)) &&
+        d.status in ['pending', 'succeeded', 'failed', 'cancelled'] &&
+        isNonEmptyStr(d.transactionRef, 120) &&
+        d.createdAt is timestamp &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidNotification(d) {
+      return d.keys().hasAll([
+          'titleAr', 'bodyAr', 'type', 'targetScope', 'targetTrack',
+          'targetLevel', 'targetSubscription', 'targetUserIds', 'createdByUid', 'createdAt'
+        ]) &&
+        d.keys().hasOnly([
+          'titleAr', 'titleFr', 'bodyAr', 'bodyFr', 'type', 'targetScope',
+          'targetTrack', 'targetLevel', 'targetSubscription', 'targetUserIds',
+          'eligibleBefore', 'createdByUid', 'createdAt'
+        ]) &&
+        isNonEmptyStr(d.titleAr, 180) &&
+        (!d.keys().hasAny(['titleFr']) || isBoundedStr(d.titleFr, 180)) &&
+        isNonEmptyStr(d.bodyAr, 2000) &&
+        (!d.keys().hasAny(['bodyFr']) || isBoundedStr(d.bodyFr, 2000)) &&
+        d.type in ['info', 'exam', 'alert', 'offer'] &&
+        d.targetScope in ['current_users', 'conditional', 'specific_users', 'all_including_future'] &&
+        d.targetTrack in ['all', 'arabic', 'french', 'bilingual'] &&
+        d.targetLevel in ['all', 'foundation', 'intermediate', 'advanced'] &&
+        d.targetSubscription in ['all', 'paid', 'free'] &&
+        d.targetUserIds is list && d.targetUserIds.size() <= 100 &&
+        (!d.keys().hasAny(['eligibleBefore']) || d.eligibleBefore == null || d.eligibleBefore is timestamp) &&
+        isNonEmptyStr(d.createdByUid, 128) &&
+        d.createdAt is timestamp;
+    }
+
+    function isValidConversation(d) {
+      return d.keys().hasAll([
+          'uid', 'userName', 'userEmail', 'subject', 'status',
+          'lastMessagePreview', 'lastSenderRole', 'unreadForUser',
+          'unreadForAdmin', 'createdAt', 'updatedAt'
+        ]) &&
+        d.keys().hasOnly([
+          'uid', 'userName', 'userEmail', 'subject', 'status',
+          'lastMessagePreview', 'lastSenderRole', 'unreadForUser',
+          'unreadForAdmin', 'createdAt', 'updatedAt'
+        ]) &&
+        isNonEmptyStr(d.uid, 128) &&
+        isNonEmptyStr(d.userName, 140) &&
+        isNonEmptyStr(d.userEmail, 200) &&
+        isNonEmptyStr(d.subject, 200) &&
+        d.status in ['open', 'pending', 'closed'] &&
+        isBoundedStr(d.lastMessagePreview, 300) &&
+        d.lastSenderRole in ['user', 'admin'] &&
+        d.unreadForUser is number && d.unreadForUser >= 0 &&
+        d.unreadForAdmin is number && d.unreadForAdmin >= 0 &&
+        d.createdAt is timestamp &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidChatMessage(d, conversationId) {
+      return d.keys().hasAll([
+          'conversationId', 'conversationOwnerUid', 'senderUid',
+          'senderName', 'senderRole', 'text', 'createdAt'
+        ]) &&
+        d.keys().hasOnly([
+          'conversationId', 'conversationOwnerUid', 'senderUid',
+          'senderName', 'senderRole', 'text', 'createdAt'
+        ]) &&
+        d.conversationId == conversationId &&
+        isNonEmptyStr(d.conversationOwnerUid, 128) &&
+        isNonEmptyStr(d.senderUid, 128) &&
+        isNonEmptyStr(d.senderName, 140) &&
+        d.senderRole in ['user', 'admin'] &&
+        isNonEmptyStr(d.text, 4000) &&
+        d.createdAt is timestamp;
+    }
+
+    function isValidSiteConfig(d) {
+      return d.keys().hasAll(['tickerMessages', 'heroSlides', 'updatedAt']) &&
+        d.keys().hasOnly(['tickerMessages', 'heroSlides', 'gradingPolicy', 'supportEnabled', 'maintenanceMode', 'updatedAt']) &&
+        d.tickerMessages is list && d.tickerMessages.size() <= 10 &&
+        d.heroSlides is list && d.heroSlides.size() <= 10 &&
+        (!d.keys().hasAny(['gradingPolicy']) || d.gradingPolicy is map) &&
+        (!d.keys().hasAny(['supportEnabled']) || d.supportEnabled is bool) &&
+        (!d.keys().hasAny(['maintenanceMode']) || d.maintenanceMode is bool) &&
+        d.updatedAt is timestamp;
+    }
+
+    function isValidAuditLog(d) {
+      return d.keys().hasAll(['actorUid', 'actorEmail', 'action', 'targetType', 'targetId', 'details', 'createdAt']) &&
+        d.keys().hasOnly(['actorUid', 'actorEmail', 'action', 'targetType', 'targetId', 'details', 'createdAt']) &&
+        d.actorUid == request.auth.uid &&
+        isNonEmptyStr(d.actorEmail, 200) &&
+        isNonEmptyStr(d.action, 80) &&
+        isNonEmptyStr(d.targetType, 80) &&
+        isBoundedStr(d.targetId, 128) &&
+        isBoundedStr(d.details, 600) &&
+        d.createdAt is timestamp;
+    }
+
+    // =========================================================================
+    // Match Blocks (Covering 100% of firebase-blueprint.json)
+    // =========================================================================
+
+    match /test/connection {
+      allow get: if request.path[3] == 'test' && request.path[4] == 'connection';
+      allow list: if false;
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /admins/{userId} {
+      allow get: if isValidId(userId) && (isAdmin() || isVerifiedOwner(userId));
+      allow list: if isAdmin();
+      allow create, update: if isValidId(userId) &&
+        isAdmin() &&
+        isValidAdminRecord(incoming(), userId);
+      allow delete: if false;
+    }
+
+    match /users/{userId} {
+      allow get: if isValidId(userId) && (isOwner(userId) || isAdmin());
+      allow list: if isAdmin();
+
+      // Self-signup allowed once on own UID with role strictly locked to 'student'
+      // (Official admin email may initialize own record with role 'admin')
+      allow create: if isValidId(userId) &&
+        isOwner(userId) &&
+        isValidUserProfile(incoming(), userId) &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time &&
+        incoming().disabled == false &&
+        (
+          incoming().role == 'student' ||
+          (isAdmin() && incoming().role == 'admin')
+        );
+
+      allow update: if isValidId(userId) &&
+        isValidUserProfile(incoming(), userId) &&
+        incoming().uid == existing().uid &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (
+          isAdmin() ||
+          (
+            isVerifiedOwner(userId) &&
+            incoming().role == existing().role &&
+            incoming().disabled == existing().disabled &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'name', 'track', 'preferredLang', 'level', 'emailVerified',
+              'profileCompleted', 'acceptedTermsAt', 'acceptedPrivacyAt', 'updatedAt'
+            ])
+          )
+        );
+
+      allow delete: if isValidId(userId) && isAdmin();
+
+      match /private/{docId} {
+        allow get: if isValidId(userId) && isValidId(docId) && docId == 'info' && (isOwner(userId) || isAdmin());
+        allow list: if isAdmin();
+        allow create: if isValidId(userId) && isValidId(docId) && docId == 'info' &&
+          (isOwner(userId) || isAdmin()) &&
+          isValidUserPrivateInfo(incoming(), userId) &&
+          incoming().createdAt == request.time &&
+          incoming().updatedAt == request.time;
+        allow update: if isValidId(userId) && isValidId(docId) && docId == 'info' &&
+          isValidUserPrivateInfo(incoming(), userId) &&
+          incoming().uid == existing().uid &&
+          incoming().createdAt == existing().createdAt &&
+          incoming().updatedAt == request.time &&
+          (
+            isAdmin() ||
+            (
+              isVerifiedOwner(userId) &&
+              incoming().diff(existing()).affectedKeys().hasOnly([
+                'phone', 'wilaya', 'city', 'institution', 'updatedAt'
+              ])
+            )
+          );
+        allow delete: if isValidId(userId) && isAdmin();
+      }
+
+      match /lessonProgress/{lessonId} {
+        allow get: if isValidId(userId) && isValidId(lessonId) && (isOwner(userId) || isAdmin());
+        allow list: if (isOwner(userId) && existing().uid == request.auth.uid) || isAdmin();
+        allow create: if isValidId(userId) && isValidId(lessonId) &&
+          isVerifiedOwner(userId) &&
+          isValidLessonProgress(incoming(), userId, lessonId) &&
+          incoming().updatedAt == request.time;
+        allow update: if isValidId(userId) && isValidId(lessonId) &&
+          isVerifiedOwner(userId) &&
+          isValidLessonProgress(incoming(), userId, lessonId) &&
+          incoming().uid == existing().uid &&
+          incoming().lessonId == existing().lessonId &&
+          incoming().updatedAt == request.time &&
+          incoming().diff(existing()).affectedKeys().hasOnly(['completed', 'isFavorite', 'updatedAt']);
+        allow delete: if isValidId(userId) && isValidId(lessonId) && (isVerifiedOwner(userId) || isAdmin());
+      }
+
+      match /notificationReads/{notificationId} {
+        allow get: if isValidId(userId) && isValidId(notificationId) && (isOwner(userId) || isAdmin());
+        allow list: if (isOwner(userId) && existing().uid == request.auth.uid) || isAdmin();
+        allow create: if isValidId(userId) && isValidId(notificationId) &&
+          isVerifiedOwner(userId) &&
+          isValidNotificationRead(incoming(), userId, notificationId) &&
+          incoming().readAt == request.time;
+        allow update: if false;
+        allow delete: if isValidId(userId) && isValidId(notificationId) && isAdmin();
+      }
+    }
+
+    match /subjects/{subjectId} {
+      allow get: if isValidId(subjectId) && (existing().active == true || isAdmin());
+      allow list: if existing().active == true || isAdmin();
+      allow create, update: if isValidId(subjectId) &&
+        isAdmin() &&
+        isValidSubject(incoming()) &&
+        incoming().updatedAt == request.time;
+      allow delete: if isValidId(subjectId) && isAdmin();
+    }
+
+    match /lessonSections/{sectionId} {
+      allow get: if isValidId(sectionId) && (existing().active == true || isAdmin());
+      allow list: if existing().active == true || isAdmin();
+      allow create: if isValidId(sectionId) &&
+        isAdmin() &&
+        isValidLessonSection(incoming()) &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isValidId(sectionId) &&
+        isAdmin() &&
+        isValidLessonSection(incoming()) &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time;
+      allow delete: if isValidId(sectionId) && isAdmin();
+    }
+
+    match /lessons/{lessonId} {
+      allow get: if isValidId(lessonId) && (existing().active == true || isAdmin());
+      allow list: if existing().active == true || isAdmin();
+      allow create: if isValidId(lessonId) &&
+        isAdmin() &&
+        isValidLesson(incoming()) &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isValidId(lessonId) &&
+        isAdmin() &&
+        isValidLesson(incoming()) &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time;
+      allow delete: if isValidId(lessonId) && isAdmin();
+    }
+
+    match /plans/{planId} {
+      allow get: if isValidId(planId) && (existing().active == true || isAdmin());
+      allow list: if existing().active == true || isAdmin();
+      allow create, update: if isValidId(planId) &&
+        isAdmin() &&
+        isValidPlan(incoming()) &&
+        incoming().updatedAt == request.time;
+      allow delete: if isValidId(planId) && isAdmin();
+    }
+
+    // Paid subscriptions may ONLY be activated by the Official Admin after manual review.
+    // Verified users may only self-activate the 0 MRU Free plan.
+    match /subscriptions/{subscriptionId} {
+      allow get: if isValidId(subscriptionId) && (isAdmin() || (isSignedIn() && existing().uid == request.auth.uid));
+      allow list: if isAdmin() || (isSignedIn() && existing().uid == request.auth.uid);
+      allow create: if isValidId(subscriptionId) &&
+        isValidUserSubscription(incoming()) &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time &&
+        (
+          isAdmin() ||
+          (
+            isVerified() &&
+            incoming().uid == request.auth.uid &&
+            incoming().status == 'active' &&
+            incoming().billingCycle == 'free' &&
+            exists(/databases/$(database)/documents/plans/$(incoming().planId)) &&
+            get(/databases/$(database)/documents/plans/$(incoming().planId)).data.priceMru == 0
+          )
+        );
+      allow update: if isValidId(subscriptionId) &&
+        isValidUserSubscription(incoming()) &&
+        incoming().uid == existing().uid &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (
+          isAdmin() ||
+          (
+            isVerifiedOwner(existing().uid) &&
+            existing().status == 'active' &&
+            incoming().status == 'cancelled' &&
+            incoming().diff(existing()).affectedKeys().hasOnly(['status', 'updatedAt'])
+          )
+        );
+      allow delete: if isValidId(subscriptionId) && isAdmin();
+    }
+
+    // Manual-Review Mauritanian Subscription Requests (Zero auto-activation)
+    match /subscriptionRequests/{requestId} {
+      allow get: if isValidId(requestId) && (isAdmin() || (isSignedIn() && existing().uid == request.auth.uid));
+      allow list: if isAdmin() || (isSignedIn() && existing().uid == request.auth.uid);
+      allow create: if isValidId(requestId) &&
+        isVerified() &&
+        isValidSubscriptionRequest(incoming(), requestId) &&
+        incoming().uid == request.auth.uid &&
+        incoming().userId == request.auth.uid &&
+        incoming().status in ['pending_review', 'partial_pending'] &&
+        incoming().expiresAt == null &&
+        !incoming().keys().hasAny(['approvedBy', 'approvedAt', 'startsAt', 'rejectionReason']) &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isValidId(requestId) &&
+        isValidSubscriptionRequest(incoming(), requestId) &&
+        incoming().uid == existing().uid &&
+        incoming().userId == existing().userId &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (
+          isAdmin() ||
+          (
+            isVerifiedOwner(existing().uid) &&
+            existing().status in ['partial_pending', 'needs_info'] &&
+            incoming().status in ['partial_pending', 'pending_review'] &&
+            incoming().expiresAt == existing().expiresAt &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'paidAmount', 'remainingAmount', 'status',
+              'secondPaymentMethod', 'secondTransactionId', 'secondTransactionReference',
+              'secondTransactionAt', 'secondProofHash', 'secondUploadedAt', 'updatedAt'
+            ])
+          )
+        );
+      allow delete: if isValidId(requestId) && isAdmin();
+    }
+
+    // Transfer Screenshot Proofs (linked atomically to subscriptionRequests)
+    match /paymentProofs/{proofId} {
+      allow get: if isValidId(proofId) && (isAdmin() || (isSignedIn() && existing().uid == request.auth.uid));
+      allow list: if isAdmin() || (isSignedIn() && existing().uid == request.auth.uid);
+      allow create: if isValidId(proofId) &&
+        isVerified() &&
+        isValidPaymentProof(incoming(), proofId) &&
+        incoming().uid == request.auth.uid &&
+        incoming().createdAt == request.time &&
+        existsAfter(/databases/$(database)/documents/subscriptionRequests/$(proofId));
+      allow update: if isValidId(proofId) &&
+        isAdmin() &&
+        isValidPaymentProof(incoming(), proofId) &&
+        incoming().uid == existing().uid &&
+        incoming().createdAt == existing().createdAt;
+      allow delete: if isValidId(proofId) && isAdmin();
+    }
+
+    // Immutable Approved Payments Ledger (Official Admin only)
+    match /payments/{paymentId} {
+      allow get: if isValidId(paymentId) && (isAdmin() || (isSignedIn() && existing().uid == request.auth.uid));
+      allow list: if isAdmin() || (isSignedIn() && existing().uid == request.auth.uid);
+      allow create: if isValidId(paymentId) &&
+        isAdmin() &&
+        isValidApprovedPayment(incoming(), paymentId) &&
+        incoming().createdAt == request.time;
+      allow update, delete: if false;
+    }
+
+    // Configurable Payment Methods Catalog
+    match /paymentMethods/{methodId} {
+      allow get: if isValidId(methodId) && (existing().active == true || isAdmin());
+      allow list: if existing().active == true || isAdmin();
+      allow create, update: if isValidId(methodId) &&
+        isAdmin() &&
+        isValidPaymentMethod(incoming(), methodId) &&
+        incoming().updatedAt == request.time;
+      allow delete: if isValidId(methodId) && isAdmin();
+    }
+
+    // Configurable Plan Tier Quotas
+    match /planLimits/{tierId} {
+      allow get: if isValidId(tierId) && (existing().tier == 'free' || isAdmin());
+      allow list: if existing().tier == 'free' || isAdmin();
+      allow create, update: if isValidId(tierId) &&
+        isAdmin() &&
+        isValidPlanLimit(incoming(), tierId) &&
+        incoming().updatedAt == request.time;
+      allow delete: if isValidId(tierId) && isAdmin();
+    }
+
+    // Legacy Payment Orders (Admin-only writes; cannot self-activate subscriptions)
+    match /orders/{orderId} {
+      allow get: if isValidId(orderId) && (isAdmin() || (isSignedIn() && existing().uid == request.auth.uid));
+      allow list: if isAdmin() || (isSignedIn() && existing().uid == request.auth.uid);
+      allow create: if isValidId(orderId) &&
+        isAdmin() &&
+        isValidPaymentOrder(incoming()) &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isValidId(orderId) &&
+        isAdmin() &&
+        isValidPaymentOrder(incoming()) &&
+        incoming().uid == existing().uid &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time;
+      allow delete: if isValidId(orderId) && isAdmin();
+    }
+
+    match /notifications/{notificationId} {
+      allow get: if isValidId(notificationId) && (
+        isAdmin() ||
+        (
+          isSignedIn() &&
+          (
+            existing().targetScope in ['current_users', 'conditional', 'all_including_future'] ||
+            request.auth.uid in existing().targetUserIds
+          )
+        )
+      );
+      allow list: if isAdmin() || (
+        isSignedIn() && (
+          existing().targetScope in ['current_users', 'conditional', 'all_including_future'] ||
+          request.auth.uid in existing().targetUserIds
+        )
+      );
+      allow create: if isValidId(notificationId) &&
+        isAdmin() &&
+        isValidNotification(incoming()) &&
+        incoming().createdByUid == request.auth.uid &&
+        incoming().createdAt == request.time &&
+        (
+          incoming().targetScope != 'current_users' ||
+          incoming().eligibleBefore == request.time
+        );
+      allow update: if isValidId(notificationId) &&
+        isAdmin() &&
+        isValidNotification(incoming()) &&
+        incoming().createdByUid == existing().createdByUid &&
+        incoming().createdAt == existing().createdAt;
+      allow delete: if isValidId(notificationId) && isAdmin();
+    }
+
+    match /conversations/{conversationId} {
+      allow get: if isValidId(conversationId) && (isAdmin() || (isSignedIn() && existing().uid == request.auth.uid));
+      allow list: if isAdmin() || (isSignedIn() && existing().uid == request.auth.uid);
+      allow create: if isValidId(conversationId) &&
+        isVerified() &&
+        isValidConversation(incoming()) &&
+        incoming().uid == request.auth.uid &&
+        incoming().lastSenderRole == 'user' &&
+        incoming().status in ['open', 'pending'] &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isValidId(conversationId) &&
+        isValidConversation(incoming()) &&
+        incoming().uid == existing().uid &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (
+          isAdmin() ||
+          (
+            isVerifiedOwner(existing().uid) &&
+            incoming().unreadForUser == 0 &&
+            incoming().diff(existing()).affectedKeys().hasOnly(['unreadForUser', 'updatedAt'])
+          ) ||
+          (
+            isVerifiedOwner(existing().uid) &&
+            existing().status != 'closed' &&
+            incoming().status == 'open' &&
+            incoming().lastSenderRole == 'user' &&
+            incoming().unreadForAdmin >= existing().unreadForAdmin &&
+            incoming().diff(existing()).affectedKeys().hasOnly([
+              'lastMessagePreview', 'lastSenderRole', 'unreadForAdmin',
+              'unreadForUser', 'status', 'updatedAt'
+            ])
+          )
+        );
+      allow delete: if isValidId(conversationId) && isAdmin();
+
+      match /messages/{messageId} {
+        allow get: if isValidId(conversationId) && isValidId(messageId) && (
+          isAdmin() ||
+          (
+            isSignedIn() &&
+            get(/databases/$(database)/documents/conversations/$(conversationId)).data.uid == request.auth.uid
+          )
+        );
+        allow list: if isAdmin() || (
+          isSignedIn() &&
+          existing().conversationOwnerUid == request.auth.uid
+        );
+        allow create: if isValidId(conversationId) && isValidId(messageId) &&
+          isVerified() &&
+          isValidChatMessage(incoming(), conversationId) &&
+          incoming().senderUid == request.auth.uid &&
+          incoming().createdAt == request.time &&
+          exists(/databases/$(database)/documents/conversations/$(conversationId)) &&
+          incoming().conversationOwnerUid == get(/databases/$(database)/documents/conversations/$(conversationId)).data.uid &&
+          (
+            (isAdmin() && incoming().senderRole == 'admin') ||
+            (
+              !isAdmin() &&
+              incoming().senderRole == 'user' &&
+              get(/databases/$(database)/documents/conversations/$(conversationId)).data.uid == request.auth.uid &&
+              get(/databases/$(database)/documents/conversations/$(conversationId)).data.status != 'closed'
+            )
+          );
+        allow update: if false;
+        allow delete: if isValidId(conversationId) && isValidId(messageId) && isAdmin();
+      }
+    }
+
+    match /siteConfig/{configId} {
+      allow get: if isValidId(configId) && (configId == 'main' || isAdmin());
+      allow list: if isAdmin();
+      allow create, update: if isValidId(configId) &&
+        isAdmin() &&
+        isValidSiteConfig(incoming()) &&
+        incoming().updatedAt == request.time;
+      allow delete: if isValidId(configId) && isAdmin();
+    }
+
+    match /auditLogs/{logId} {
+      allow get, list: if isAdmin();
+      allow create: if isValidId(logId) &&
+        isAdmin() &&
+        isValidAuditLog(incoming()) &&
+        incoming().createdAt == request.time;
+      allow update, delete: if false;
+    }
+  }
+}
