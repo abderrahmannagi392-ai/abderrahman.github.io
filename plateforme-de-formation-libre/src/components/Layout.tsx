@@ -25,7 +25,6 @@ import {
 } from 'lucide-react';
 import { useApp, type AppView, type ViewParams } from '../context/AppContext';
 import { getT } from '../i18n/translations';
-import { AppShell, type ShellItem } from './AppShell';
 import type { Language, TrackSlug } from '../types';
 import { tr } from '../utils/locale';
 import { AnimatedFooter } from './AnimatedFooter';
@@ -66,20 +65,6 @@ function renderTickerParts(rawText: string, questionsCount: number, lessonsCount
     return <React.Fragment key={idx}>{part}</React.Fragment>;
   });
 }
-
-// Views that always use the public website layout, even when logged in.
-const SHELL_PUBLIC_VIEWS: AppView[] = [
-  'login',
-  'register',
-  'forgot-password',
-  'reset-password',
-  'verify-receipt',
-  'about',
-  'privacy',
-  'terms',
-  'contact',
-  'checkout',
-];
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const {
@@ -604,124 +589,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         </main>
         <AnimatedFooter />
       </div>
-    );
-  }
-
-  // Overlays shared by the public layout and the logged-in shell
-  const overlays = (
-    <>
-      {/* Logout Confirmation Modal */}
-      {logoutConfirmOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-[#0b2217]/50 flex items-center justify-center p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label={tr(lang, 'تأكيد تسجيل الخروج', 'Confirmation de déconnexion', 'Confirm Logout')}
-        >
-          <div
-            className="rounded-[10px] border max-w-sm w-full shadow-xl p-5 space-y-4"
-            style={{ background: 'var(--card)', color: 'var(--ink)', borderColor: 'var(--line)' }}
-          >
-            <div className="flex items-center gap-2.5">
-              <LogOut className="w-5 h-5 text-red-600 shrink-0" />
-              <h3 className="font-extrabold text-sm">
-                {tr(lang, 'هل أنت متأكد أنك تريد تسجيل الخروج؟', 'Voulez-vous vraiment vous déconnecter ?', 'Are you sure you want to log out?')}
-              </h3>
-            </div>
-            <div className="flex items-center justify-end gap-2.5 pt-1">
-              <button
-                type="button"
-                onClick={cancelLogout}
-                className="imgsend2-secondary !py-1.5 !px-5 text-xs"
-              >
-                {tr(lang, 'لا', 'Non', 'No')}
-              </button>
-              <button
-                type="button"
-                onClick={() => void confirmLogout()}
-                className="inline-flex items-center justify-center gap-1.5 px-5 py-1.5 rounded-[4px] bg-red-600 hover:bg-red-700 text-white font-bold text-xs cursor-pointer"
-              >
-                {tr(lang, 'نعم', 'Oui', 'Yes')}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Real-time Floating Notification Toast */}
-      {activeToast && (
-        <div
-          className="fixed bottom-4 inset-inline-end-4 z-50 max-w-sm w-[calc(100vw-2rem)] rounded-[10px] border shadow-xl p-3.5 space-y-2"
-          style={{ background: 'var(--card)', color: 'var(--ink)', borderColor: '#A6CE39' }}
-          role="status"
-          aria-live="polite"
-        >
-          <div className="flex items-start justify-between gap-2">
-            <div className="flex items-center gap-2 font-extrabold text-xs">
-              <Bell className="w-4 h-4 text-[#83a329] shrink-0" />
-              <span>{lang === 'ar' ? activeToast.title_ar : activeToast.title_fr || activeToast.title_ar}</span>
-            </div>
-            <button
-              type="button"
-              onClick={dismissToast}
-              className="p-0.5 hover:text-[#83a329] cursor-pointer"
-              aria-label={t.close}
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-          <p className="text-[11.5px] leading-relaxed" style={{ color: 'var(--mute)' }}>
-            <NotificationBodyText text={lang === 'ar' ? activeToast.body_ar : activeToast.body_fr || activeToast.body_ar} />
-          </p>
-          <div className="flex items-center justify-end gap-3 text-[11px] font-bold">
-            <button
-              type="button"
-              onClick={() => {
-                void markNotificationsRead();
-                dismissToast();
-                navigate('notifications');
-              }}
-              className="text-[#83a329] hover:underline cursor-pointer"
-            >
-              {tr(lang, 'عرض الإشعارات', 'Voir les notifications', 'View notifications')}
-            </button>
-          </div>
-        </div>
-      )}
-    </>
-  );
-
-  // =========================================================================
-  // LOGGED-IN APP SHELL (desktop): persistent sidebar + account menu.
-  // Public pages (login, register, legal pages) keep the website layout.
-  // =========================================================================
-  if (user && !SHELL_PUBLIC_VIEWS.includes(currentView)) {
-    const tools: ShellItem[] = sidebarItems.filter((item) => item.id !== 'profile');
-    const accountItems: ShellItem[] = [
-      { id: 'profile', label: t.myAccount, icon: UserIcon },
-      { id: 'dashboard', label: t.dashboardAndResults, icon: SlidersHorizontal },
-      { id: 'subscriptions', label: t.navSubscriptions, icon: CreditCard },
-      ...(isPrivileged ? [{ id: 'admin' as AppView, label: t.navAdmin, icon: Shield }] : []),
-    ];
-    return (
-      <>
-        <AppShell
-          lang={lang}
-          currentView={currentView}
-          tools={tools}
-          accountItems={accountItems}
-          userName={user.name}
-          userSubtitle={user.email}
-          theme={theme === 'dark' ? 'dark' : 'light'}
-          onToggleTheme={toggleTheme}
-          onSetLang={setLang}
-          onNavigate={(view) => navJump(view)}
-          onLogout={requestLogout}
-        >
-          {children}
-        </AppShell>
-        {overlays}
-      </>
     );
   }
 
@@ -1520,7 +1387,84 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       )}
 
-      {overlays}
+      {/* Logout Confirmation Modal */}
+      {logoutConfirmOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-[#0b2217]/50 flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={tr(lang, 'تأكيد تسجيل الخروج', 'Confirmation de déconnexion', 'Confirm Logout')}
+        >
+          <div
+            className="rounded-[10px] border max-w-sm w-full shadow-xl p-5 space-y-4"
+            style={{ background: 'var(--card)', color: 'var(--ink)', borderColor: 'var(--line)' }}
+          >
+            <div className="flex items-center gap-2.5">
+              <LogOut className="w-5 h-5 text-red-600 shrink-0" />
+              <h3 className="font-extrabold text-sm">
+                {tr(lang, 'هل أنت متأكد أنك تريد تسجيل الخروج؟', 'Voulez-vous vraiment vous déconnecter ?', 'Are you sure you want to log out?')}
+              </h3>
+            </div>
+            <div className="flex items-center justify-end gap-2.5 pt-1">
+              <button
+                type="button"
+                onClick={cancelLogout}
+                className="imgsend2-secondary !py-1.5 !px-5 text-xs"
+              >
+                {tr(lang, 'لا', 'Non', 'No')}
+              </button>
+              <button
+                type="button"
+                onClick={() => void confirmLogout()}
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-1.5 rounded-[4px] bg-red-600 hover:bg-red-700 text-white font-bold text-xs cursor-pointer"
+              >
+                {tr(lang, 'نعم', 'Oui', 'Yes')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Real-time Floating Notification Toast */}
+      {activeToast && (
+        <div
+          className="fixed bottom-4 inset-inline-end-4 z-50 max-w-sm w-[calc(100vw-2rem)] rounded-[10px] border shadow-xl p-3.5 space-y-2"
+          style={{ background: 'var(--card)', color: 'var(--ink)', borderColor: '#A6CE39' }}
+          role="status"
+          aria-live="polite"
+        >
+          <div className="flex items-start justify-between gap-2">
+            <div className="flex items-center gap-2 font-extrabold text-xs">
+              <Bell className="w-4 h-4 text-[#83a329] shrink-0" />
+              <span>{lang === 'ar' ? activeToast.title_ar : activeToast.title_fr || activeToast.title_ar}</span>
+            </div>
+            <button
+              type="button"
+              onClick={dismissToast}
+              className="p-0.5 hover:text-[#83a329] cursor-pointer"
+              aria-label={t.close}
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+          <p className="text-[11.5px] leading-relaxed" style={{ color: 'var(--mute)' }}>
+            <NotificationBodyText text={lang === 'ar' ? activeToast.body_ar : activeToast.body_fr || activeToast.body_ar} />
+          </p>
+          <div className="flex items-center justify-end gap-3 text-[11px] font-bold">
+            <button
+              type="button"
+              onClick={() => {
+                void markNotificationsRead();
+                dismissToast();
+                navigate('notifications');
+              }}
+              className="text-[#83a329] hover:underline cursor-pointer"
+            >
+              {tr(lang, 'عرض الإشعارات', 'Voir les notifications', 'View notifications')}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
